@@ -1,11 +1,10 @@
-package com.example.bottomnavigation_practise.screen
+package com.example.bottomnavigation_practise.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bottomnavigation_practise.MainActivity
 import com.example.bottomnavigation_practise.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope

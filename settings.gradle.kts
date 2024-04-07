@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "bottomNavigation_Practise"
 include(":app")
- 
+include(":app:mylibrary")
+include(":core1")
