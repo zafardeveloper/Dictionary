@@ -3,16 +3,16 @@
     <item
         android:id="@+id/item_home"
         android:icon="@drawable/ic_home"
-        android:title="One" />
+        android:title="луғат" />
 
     <item
         android:id="@+id/item_people"
         android:icon="@drawable/ic_people"
-        android:title="Two" />
+        android:title="викторина" />
 
     <item
         android:id="@+id/item_settings"
         android:icon="@drawable/ic_settings"
-        android:title="Three" />
+        android:title="танзим" />
 
 </menu>
