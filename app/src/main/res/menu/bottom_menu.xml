@@ -7,13 +7,8 @@
 
     <item
         android:id="@+id/item_people"
-        android:icon="@drawable/favorite_icon"
-        android:title="дӯстдоштаҳо" />
-
-  <!--  <item
-        android:id="@+id/item_quiz"
-        android:icon="@drawable/quiz_icon"
-        android:title="викторина" />-->
+        android:icon="@drawable/ic_people"
+        android:title="викторина" />
 
     <item
         android:id="@+id/item_settings"

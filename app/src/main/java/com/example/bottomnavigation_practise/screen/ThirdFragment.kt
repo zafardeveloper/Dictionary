@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise.view
+package com.example.bottomnavigation_practise.screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
