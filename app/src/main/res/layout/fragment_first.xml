@@ -3,15 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.FirstFragment"
-    android:background="#780000">
+    tools:context=".view.FirstFragment"
+    android:background="#C1BABA">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="One"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:textColor="@color/white"/>
+        />
 
 </LinearLayout>
