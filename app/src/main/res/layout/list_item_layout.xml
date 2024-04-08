@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/textViewWord"
@@ -11,20 +12,30 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Word"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
 
-    <ImageView
-        android:id="@+id/imageViewPlay"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/sound_icon"
-        android:layout_marginEnd="8dp"/>
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/imageViewFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/favorite_not_icon"
-        android:layout_marginEnd="8dp"/>
+        <ImageView
+            android:id="@+id/imageViewPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/sound_icon" />
+
+        <ImageView
+            android:id="@+id/imageViewFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/favorite_not_icon" />
+    </LinearLayout>
+
 
 </LinearLayout>
