@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.list_item_layout)
         replaceFragment(FirstFragment())
 
         findViewById<BottomNavigationView>(R.id.bottom_navigation_view).setOnItemSelectedListener {
