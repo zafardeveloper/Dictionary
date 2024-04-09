@@ -3,15 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.FirstFragment"
-    android:background="#780000">
-
-    <TextView
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="One"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:textColor="@color/white"/>
+        android:layout_height="wrap_content"
+        android:background="@color/green_1"
+        >
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="10dp"
+                app:cardBackgroundColor="@color/green_2"
+                app:cardCornerRadius="99dp"
+                app:cardElevation="0dp">
 
-</LinearLayout>
+                <EditText
+                    android:id="@+id/searchEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="8dp"
+                    android:hint="search"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </LinearLayout>

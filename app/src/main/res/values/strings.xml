@@ -1,5 +1,20 @@
 <resources>
-    <string name="app_name">bottomNavigation_Practise</string>
+    <string name="app_name">myDictProject</string>
+    <string name="createAkkaunt">Аккаунт созед!</string>
+    <string name="sign_in_toAkkaunt">Ба аккаунт дароед!</string>
+    <string name="sign_in">Дохилшавӣ</string>
+    <string name="create">Сохтан</string>
+    <string name="avtorize">Дохилшавӣ</string>
+    <string name="sign_up">Аз қайд гузаштан</string>
+    <string name="NeVsePolyaZapolneni">На ҳамаи майдонҳо пур карда шудаанд</string>
+    <string name="added">илова шуд</string>
+    <string name="avtorized">Хуш омадед!</string>
+    <string name="words">Калимаҳо</string>
+    <string name="back">Ба қафо</string>
+    <string name="splash_text">Луғати вожаҳои серитеъмоли забонҳои тоҷикӣ, русӣ, аанглисӣ</string>
+    <string name="dictionary">Луғат</string>
+    <string name="test">Викторина</string>
+    <string name="info">Маълумот</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
