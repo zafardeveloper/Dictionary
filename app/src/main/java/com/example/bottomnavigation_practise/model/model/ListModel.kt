@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise.dictionary_list.model
+package com.example.bottomnavigation_practise.model.model
 
 class ListModel (
     val tajWord: String,
