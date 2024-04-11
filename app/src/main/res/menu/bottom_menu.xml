@@ -7,7 +7,7 @@
 
     <item
         android:id="@+id/item_favorites"
-        android:icon="@drawable/favorite_icon"
+        android:icon="@drawable/favorite_not_icon"
         android:title="дӯстдоштаҳо" />
     <!--<item
         android:id="@+id/item_favorites"
