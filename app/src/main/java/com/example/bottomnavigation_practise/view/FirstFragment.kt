@@ -64,6 +64,9 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
 
 
+
+
+
     private fun filterChats(query: Editable?) {
         query?.let { it ->
             if (it.isNotEmpty()) {
