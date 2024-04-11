@@ -6,9 +6,13 @@
         android:title="луғат" />
 
     <item
-        android:id="@+id/item_people"
-        android:icon="@drawable/ic_people"
-        android:title="викторина" />
+        android:id="@+id/item_favorites"
+        android:icon="@drawable/favorite_icon"
+        android:title="дӯстдоштаҳо" />
+    <!--<item
+        android:id="@+id/item_favorites"
+        android:icon="@drawable/favorite_icon"
+        android:title="викторина" />-->
 
     <item
         android:id="@+id/item_settings"

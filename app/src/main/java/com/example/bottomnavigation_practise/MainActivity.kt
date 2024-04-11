@@ -3,10 +3,10 @@ package com.example.bottomnavigation_practise
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.bottomnavigation_practise.dictionary_list.FirstFragment
-import com.example.bottomnavigation_practise.screen.SecondFragment
-import com.example.bottomnavigation_practise.screen.SplashFragment
-import com.example.bottomnavigation_practise.screen.ThirdFragment
+import com.example.bottomnavigation_practise.view.FirstFragment
+import com.example.bottomnavigation_practise.view.SecondFragment
+import com.example.bottomnavigation_practise.view.SplashFragment
+import com.example.bottomnavigation_practise.view.ThirdFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<BottomNavigationView>(R.id.bottom_navigation_view).setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.item_home -> postDelayed { replaceFragment(FirstFragment()) }
-                R.id.item_people -> postDelayed { replaceFragment(SecondFragment()) }
+                R.id.item_favorites -> postDelayed { replaceFragment(SecondFragment()) }
                 R.id.item_settings -> postDelayed { replaceFragment(ThirdFragment()) }
             }
             true
