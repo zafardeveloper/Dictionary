@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise.model.Dictionary.adapter
+package com.example.bottomnavigation_practise.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View

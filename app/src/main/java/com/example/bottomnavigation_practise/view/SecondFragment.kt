@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
-import com.example.bottomnavigation_practise.model.Dictionary.adapter.FavoriteWordsAdapter
-import com.example.bottomnavigation_practise.model.Dictionary.adapter.ListAdapter
+import com.example.bottomnavigation_practise.view.adapter.FavoriteWordsAdapter
+import com.example.bottomnavigation_practise.view.adapter.ListAdapter
 import com.example.bottomnavigation_practise.model.Dictionary.model.Word
 import com.example.bottomnavigation_practise.vm.FavoriteWordsViewModel
 class SecondFragment : Fragment(R.layout.fragment_second) {
