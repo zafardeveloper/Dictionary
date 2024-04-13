@@ -14,7 +14,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.cardview.widget.CardView
 import androidx.appcompat.widget.SwitchCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.bottomnavigation_practise.R
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class ThirdFragment : Fragment() {
 
@@ -37,11 +40,17 @@ class ThirdFragment : Fragment() {
 
         cardViewSwitcher.setOnClickListener {
             themeSwitcher.isChecked = !themeSwitcher.isChecked
-            toggleTheme()
+            lifecycleScope.launch {
+                delay(300)
+                toggleTheme()
+            }
         }
 
         themeSwitcher.setOnClickListener {
-            toggleTheme()
+            lifecycleScope.launch {
+                delay(300)
+                toggleTheme()
+            }
         }
 
         cardViewAbout.setOnClickListener {
