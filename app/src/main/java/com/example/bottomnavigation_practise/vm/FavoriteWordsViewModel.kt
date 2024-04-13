@@ -14,4 +14,5 @@ class FavoriteWordsViewModel : ViewModel() {
     fun setFavoriteWords(words: List<Word>) {
         _favoriteWords.value = words
     }
+
 }

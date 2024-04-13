@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise.model.Dictionary.adapter
+package com.example.bottomnavigation_practise.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -46,6 +46,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
         fun bind(word: Word) {
             tajTextView.text = word.tajWord
             rusTextView.text = word.rusWord
+
         }
     }
 
