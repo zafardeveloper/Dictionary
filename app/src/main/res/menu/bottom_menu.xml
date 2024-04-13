@@ -3,12 +3,12 @@
     <item
         android:id="@+id/item_home"
         android:icon="@drawable/ic_home"
-        android:title="луғат" />
+        android:title="" />
 
     <item
         android:id="@+id/item_favorites"
-        android:icon="@drawable/favorite_icon"
-        android:title="дӯстдоштаҳо" />
+        android:icon="@drawable/ic_favourite"
+        android:title="" />
     <!--<item
         android:id="@+id/item_favorites"
         android:icon="@drawable/favorite_icon"
@@ -16,7 +16,7 @@
 
     <item
         android:id="@+id/item_settings"
-        android:icon="@drawable/ic_settings"
-        android:title="танзим" />
+        android:icon="@drawable/ic_setting"
+        android:title="" />
 
 </menu>

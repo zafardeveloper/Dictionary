@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        replaceFragment(SplashFragment())
 
         findViewById<BottomNavigationView>(R.id.bottom_navigation_view).setOnItemSelectedListener {
             when (it.itemId) {
@@ -25,18 +24,16 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        if (savedInstanceState == null){
+            replaceFragment(SplashFragment())
+        }
     }
 
     private fun replaceFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
 
-        fragmentTransaction.setCustomAnimations(
-            R.anim.from_right,  // анимация при входе нового фрагмента
-            R.anim.to_left,  // анимация при выходе старого фрагмента
-            R.anim.from_left,  // анимация при входе старого фрагмента (при нажатии кнопки "Назад")
-            R.anim.to_right)  // анимация при выходе нового фрагмента (при нажатии кнопки "Назад")
-        fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
-        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+        fragmentTransaction.replace(R.id.fragment_container_view, fragment)
         fragmentTransaction.commit()
     }
 
