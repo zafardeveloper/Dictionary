@@ -1,15 +1,13 @@
-package com.example.bottomnavigation_practise.model.adapter
+package com.example.bottomnavigation_practise.model.Dictionary.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
-import com.example.bottomnavigation_practise.model.model.ListModel
-import com.example.bottomnavigation_practise.model.model.Word
+import com.example.bottomnavigation_practise.model.Dictionary.model.Word
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
@@ -22,6 +20,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
         this.items.addAll(items)
         notifyDataSetChanged()
     }
+
     fun setOnFavoriteCheckedChangeListener(listener: (List<Word>) -> Unit) {
         onFavoriteCheckedChangeListener = listener
     }
@@ -29,19 +28,24 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val tajTextView = itemView.findViewById<TextView>(R.id.textTajWord)
         private val rusTextView = itemView.findViewById<TextView>(R.id.textRusWord)
-        private val favoriteRadioButton = itemView.findViewById<RadioButton>(R.id.radioBtnFavorite)
+        private val btnFavourite = itemView.findViewById<ImageView>(R.id.btnFavorite)
+        private var isImagePressed = false
+
+        init {
+            btnFavourite.setOnClickListener {
+                isImagePressed = !isImagePressed
+                if (isImagePressed) {
+                    btnFavourite.setImageResource(R.drawable.favourite_icon)
+                } else {
+                    btnFavourite.setImageResource(R.drawable.favourite_not_icon)
+                }
+            }
+        }
 
 
-
-        fun bind(word: Word){
+        fun bind(word: Word) {
             tajTextView.text = word.tajWord
             rusTextView.text = word.rusWord
-            favoriteRadioButton.isChecked = word.isFavorite
-
-            favoriteRadioButton.setOnCheckedChangeListener { _, isChecked ->
-                // Установим состояние избранности для выбранного элемента
-                word.isFavorite = isChecked
-            }
         }
     }
 

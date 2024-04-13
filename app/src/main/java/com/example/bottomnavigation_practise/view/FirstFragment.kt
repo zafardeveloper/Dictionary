@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
-import com.example.bottomnavigation_practise.model.adapter.ListAdapter
-import com.example.bottomnavigation_practise.model.model.Word
+import com.example.bottomnavigation_practise.model.Dictionary.adapter.ListAdapter
+import com.example.bottomnavigation_practise.model.Dictionary.model.Word
 import com.example.bottomnavigation_practise.vm.FavoriteWordsViewModel
 
 class FirstFragment : Fragment(R.layout.fragment_first) {

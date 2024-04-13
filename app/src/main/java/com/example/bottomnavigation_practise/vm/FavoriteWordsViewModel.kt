@@ -3,7 +3,7 @@ package com.example.bottomnavigation_practise.vm
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.bottomnavigation_practise.model.model.Word
+import com.example.bottomnavigation_practise.model.Dictionary.model.Word
 
 
 class FavoriteWordsViewModel : ViewModel() {

@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise.model.adapter
+package com.example.bottomnavigation_practise.model.Dictionary.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
-import com.example.bottomnavigation_practise.model.model.Word
+import com.example.bottomnavigation_practise.model.Dictionary.model.Word
 
 class FavoriteWordsAdapter(private val favoriteWords: List<Word>) : RecyclerView.Adapter<FavoriteWordsAdapter.ViewHolder>() {
 

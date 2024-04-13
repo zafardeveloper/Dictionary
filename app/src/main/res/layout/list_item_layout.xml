@@ -16,7 +16,8 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
 
             <TextView
                 android:id="@+id/textTajWord"
@@ -39,20 +40,12 @@
 
 
         <ImageView
-            android:id="@+id/imageViewPlay"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="8dp"
-            android:src="@drawable/sound_icon" />
-
-        <RadioButton
-            android:id="@+id/radioBtnFavorite"
+            android:id="@+id/btnFavorite"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_gravity="center"
             android:layout_marginHorizontal="8dp"
-            android:button="@drawable/favorite_not_icon" />
+            android:src="@drawable/favourite_not_icon"/>
 
     </LinearLayout>
 

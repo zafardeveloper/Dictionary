@@ -9,17 +9,26 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment"
+        android:id="@+id/fragment_container_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_view"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:itemIconSize="25dp"
-        app:menu="@menu/bottom_menu"
-        app:itemActiveIndicatorStyle="@android:color/transparent"
-        android:background="@color/menu_background"/>
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            app:itemActiveIndicatorStyle="@android:color/transparent"
+            app:itemIconSize="27dp"
+            app:itemIconTint="#0072ff"
+            app:menu="@menu/bottom_menu"
+            app:itemPaddingTop="19dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+
 </LinearLayout>
