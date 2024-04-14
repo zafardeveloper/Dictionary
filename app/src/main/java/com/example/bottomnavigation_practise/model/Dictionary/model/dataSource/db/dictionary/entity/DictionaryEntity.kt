@@ -1,4 +1,4 @@
-package com.alif.newsapplication.model.dataSource.db.dictionary.entity
+package com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -12,6 +12,9 @@ data class DictionaryEntity(
     val wordRu: String,
     @ColumnInfo(name = "word_eng")
     val wordEng: String,
+    @ColumnInfo(name = "sound")
+    val sound:String
+
 ){
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

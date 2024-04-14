@@ -2,7 +2,7 @@ package com.alif.newsapplication.model.dataSource.db.dictionary.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.alif.newsapplication.model.dataSource.db.dictionary.entity.DictionaryEntity
+import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.entity.DictionaryEntity
 
 @Dao
 interface DictionaryDao {
