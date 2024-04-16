@@ -53,7 +53,6 @@ dependencies {
     api("androidx.room:room-runtime:2.5.0") // Библиотека "Room"
     kapt("androidx.room:room-compiler:2.5.0") // Кодогенератор
     api("androidx.room:room-ktx:2.5.0") // Дополнительно для Kotlin Coroutines, Kotlin Flows
-
     implementation("com.alif:core:0.0.0.1")
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)

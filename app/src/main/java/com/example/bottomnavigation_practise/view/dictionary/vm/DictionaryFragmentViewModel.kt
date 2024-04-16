@@ -1,7 +1,7 @@
 package com.example.bottomnavigation_practise.view.dictionary.vm
 
-//import com.example.bottomnavigation_practise.core.vm.BaseNewsViewModel
-import com.example.bottomnavigation_practise.model.DictionaryRepository
+import com.alif.newsapplication.core.vm.BaseNewsViewModel
+import com.example.bottomnavigation_practise.model.Dictionary.model.DictionaryRepository
 
 sealed class DictionaryResult {
 

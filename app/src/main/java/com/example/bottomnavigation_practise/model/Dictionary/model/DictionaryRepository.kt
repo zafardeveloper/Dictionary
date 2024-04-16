@@ -4,7 +4,7 @@ package com.example.bottomnavigation_practise.model.Dictionary.model
 import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.entity.DictionaryEntity
 //import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.history.DataBaseDataSource
 import com.example.bottomnavigation_practise.view.dictionary.vm.DictionaryResult
-
+import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.DataBaseDataSource
 interface DictionaryRepository {
 
     suspend fun asyncLoadVictorinaWords(): DictionaryResult.VictorinaWordsModel
