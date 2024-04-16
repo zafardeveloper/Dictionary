@@ -33,12 +33,15 @@
                 android:textSize="20sp"
                 android:layout_gravity="center_vertical"/>
 
-            <androidx.appcompat.widget.SwitchCompat
+            <Switch
                 android:id="@+id/themeSwitcher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                app:thumbTint="@drawable/switch_selector"/>
+                android:thumb="@drawable/thumb"
+                android:track="@drawable/track"
+                android:scaleX="0.65"
+                android:scaleY="0.65"/>
 
 
         </LinearLayout>
