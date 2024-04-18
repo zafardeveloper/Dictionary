@@ -4,14 +4,15 @@
         android:id="@+id/item_home"
         android:icon="@drawable/ic_home"
         android:title="" />
-
+x
     <item
         android:id="@+id/item_favorites"
         android:icon="@drawable/ic_favourite"
         android:title="" />
+
     <item
         android:id="@+id/item_victorina"
-        android:icon="@drawable/ic_favourite"
+        android:icon="@drawable/ic_victorina"
         android:title="викторина" />
 
     <item

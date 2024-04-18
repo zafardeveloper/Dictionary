@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise.view.dictionary.view
+package com.example.bottomnavigation_practise.view.victarina.view
 
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -7,11 +7,11 @@ import com.alif.core.common.clazz
 import com.alif.core.view.extention.findViewById
 import com.example.bottomnavigation_practise.R
 import com.example.bottomnavigation_practise.core.view.BaseNewsVMFragment
-import com.example.bottomnavigation_practise.view.dictionary.vm.DictionaryFragmentViewModel
-import com.example.bottomnavigation_practise.view.dictionary.vm.DictionaryResult
+import com.example.bottomnavigation_practise.view.victarina.vm.DictionaryFragmentViewModel
+import com.example.bottomnavigation_practise.view.victarina.vm.DictionaryResult
 import kotlin.properties.Delegates
 
-class DictionaryFragment : BaseNewsVMFragment<DictionaryResult, DictionaryFragmentViewModel>(
+class VictarinaFragment : BaseNewsVMFragment<DictionaryResult, DictionaryFragmentViewModel>(
     R.layout.fragment_dictionary,
     clazz()
 ) {

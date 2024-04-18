@@ -30,7 +30,7 @@ class SplashFragment : Fragment() {
                 mainActivity.supportFragmentManager.beginTransaction()
                     .setCustomAnimations(
                         R.anim.from_bottom, R.anim.to_top)
-                    .replace(R.id.fragment_container_view, FirstFragment())
+                    .replace(R.id.fragment_container_view, HomeFragment())
                     .commit()
 
                 mainActivity.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.visibility = View.VISIBLE

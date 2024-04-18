@@ -3,23 +3,19 @@ package com.example.bottomnavigation_practise.view
 import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
 import com.example.bottomnavigation_practise.model.Dictionary.model.ListModel
 import com.example.bottomnavigation_practise.view.adapter.ListAdapter
-import com.example.bottomnavigation_practise.vm.FavoriteWordsViewModel
 
-class FirstFragment : Fragment(R.layout.fragment_first), ListAdapter.Listener {
+class HomeFragment : Fragment(R.layout.fragment_first), ListAdapter.Listener {
 
 
     private val recyclerView by lazy {

@@ -14,13 +14,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.cardview.widget.CardView
-import androidx.appcompat.widget.SwitchCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.bottomnavigation_practise.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ThirdFragment : Fragment() {
+class SettingFragment : Fragment() {
 
     private lateinit var themeSwitcher: Switch
     private lateinit var sharedPreferences: SharedPreferences

@@ -3,11 +3,11 @@ package com.example.bottomnavigation_practise
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.bottomnavigation_practise.view.FirstFragment
-import com.example.bottomnavigation_practise.view.SecondFragment
+import com.example.bottomnavigation_practise.view.HomeFragment
+import com.example.bottomnavigation_practise.view.favorite.view.FavoriteFragment
 import com.example.bottomnavigation_practise.view.SplashFragment
-import com.example.bottomnavigation_practise.view.ThirdFragment
-import com.example.bottomnavigation_practise.view.dictionary.view.DictionaryFragment
+import com.example.bottomnavigation_practise.view.SettingFragment
+import com.example.bottomnavigation_practise.view.victarina.view.VictarinaFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<BottomNavigationView>(R.id.bottom_navigation_view).setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.item_home -> postDelayed { replaceFragment(FirstFragment()) }
-                R.id.item_favorites -> postDelayed { replaceFragment(SecondFragment()) }
-                R.id.item_victorina-> postDelayed { replaceFragment(DictionaryFragment()) }
-                R.id.item_settings -> postDelayed { replaceFragment(ThirdFragment()) }
+                R.id.item_home -> postDelayed { replaceFragment(HomeFragment()) }
+                R.id.item_favorites -> postDelayed { replaceFragment(FavoriteFragment()) }
+                R.id.item_victorina-> postDelayed { replaceFragment(VictarinaFragment()) }
+                R.id.item_settings -> postDelayed { replaceFragment(SettingFragment()) }
             }
             true
         }
