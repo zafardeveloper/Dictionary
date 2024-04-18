@@ -7,27 +7,29 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
-import com.example.bottomnavigation_practise.model.Dictionary.model.Word
+import com.example.bottomnavigation_practise.model.Dictionary.model.ListModel
 
-class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class ListAdapter(private val listener: Listener) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
-    private var items = ArrayList<Word>()
-    private var onFavoriteCheckedChangeListener: ((List<Word>) -> Unit)? = null
+    private var items = ArrayList<ListModel>()
+    private var onFavoriteCheckedChangeListener: ((List<ListModel>) -> Unit)? = null
 
 
-    fun updateItems(items: List<Word>) {
+    fun updateItems(items: List<ListModel>) {
         this.items.clear()
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    fun setOnFavoriteCheckedChangeListener(listener: (List<Word>) -> Unit) {
+    fun setOnFavoriteCheckedChangeListener(listener: (List<ListModel>) -> Unit) {
         onFavoriteCheckedChangeListener = listener
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val tajTextView = itemView.findViewById<TextView>(R.id.textTajWord)
         private val rusTextView = itemView.findViewById<TextView>(R.id.textRusWord)
+        private val engTextView = itemView.findViewById<TextView>(R.id.textEngWord)
+        private val transcription = itemView.findViewById<TextView>(R.id.transcription)
         private val btnFavourite = itemView.findViewById<ImageView>(R.id.btnFavorite)
         private var isImagePressed = false
 
@@ -43,10 +45,15 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
         }
 
 
-        fun bind(word: Word) {
-            tajTextView.text = word.tajWord
-            rusTextView.text = word.rusWord
-
+        fun bind(item: ListModel, listener: Listener) {
+            tajTextView.text = item.tajWord
+            rusTextView.text = item.rusWord
+            engTextView.text = item.engWord
+            transcription.text = item.transcription
+            itemView.setOnClickListener {
+                listener.onClick(item)
+                true
+            }
         }
     }
 
@@ -57,8 +64,13 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], listener)
     }
 
     override fun getItemCount(): Int = items.size
+
+    interface Listener {
+        fun onClick(item: ListModel)
+    }
+
 }
