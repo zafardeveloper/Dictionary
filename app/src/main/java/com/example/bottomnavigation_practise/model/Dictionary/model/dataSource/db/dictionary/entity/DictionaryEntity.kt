@@ -13,7 +13,7 @@ data class DictionaryEntity(
     @ColumnInfo(name = "word_eng")
     val wordEng: String,
     @ColumnInfo(name = "sound")
-    val sound:String
+    val sound:String?
 
 ){
     @PrimaryKey(autoGenerate = true)
