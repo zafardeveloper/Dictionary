@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<BottomNavigationView>(R.id.bottom_navigation_view).setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.item_home -> postDelayed { replaceFragment(HomeFragment()) }
-                R.id.item_favorites -> postDelayed { replaceFragment(FavoriteFragment()) }
-                R.id.item_victorina-> postDelayed { replaceFragment(VictarinaFragment()) }
-                R.id.item_settings -> postDelayed { replaceFragment(SettingFragment()) }
+                R.id.item_home -> replaceFragment(HomeFragment())
+                R.id.item_favorites -> replaceFragment(FavoriteFragment())
+                R.id.item_victorina-> replaceFragment(VictarinaFragment())
+                R.id.item_settings -> replaceFragment(SettingFragment())
             }
             true
         }
@@ -33,15 +33,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-
         fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
         fragmentTransaction.replace(R.id.fragment_container_view, fragment)
         fragmentTransaction.commit()
     }
 
-    private fun postDelayed(action: () -> Unit) {
-        findViewById<BottomNavigationView>(R.id.bottom_navigation_view).postDelayed({
-            action.invoke()
-        }, 300)
-    }
 }
