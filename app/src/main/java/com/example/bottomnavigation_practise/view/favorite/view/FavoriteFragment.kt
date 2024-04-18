@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise.view
+package com.example.bottomnavigation_practise.view.favorite.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,10 +6,9 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
-import com.example.bottomnavigation_practise.vm.FavoriteWordsViewModel
-class SecondFragment : Fragment(R.layout.fragment_second) {
+import com.example.bottomnavigation_practise.view.favorite.vm.FavoriteWordsViewModel
+class FavoriteFragment : Fragment(R.layout.fragment_second) {
     private lateinit var favoriteWordsViewModel: FavoriteWordsViewModel
-//    private val adapter = ListAdapter()
     private val recyclerView by lazy {
         requireView().findViewById<RecyclerView>(R.id.recyclerViewFavorite)
     }

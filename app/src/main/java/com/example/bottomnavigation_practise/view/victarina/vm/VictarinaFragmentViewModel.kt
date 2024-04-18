@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise.view.dictionary.vm
+package com.example.bottomnavigation_practise.view.victarina.vm
 
 import com.alif.newsapplication.core.vm.BaseNewsViewModel
 import com.example.bottomnavigation_practise.model.Dictionary.model.DictionaryRepository

@@ -1,6 +1,5 @@
-package com.example.bottomnavigation_practise.vm
+package com.example.bottomnavigation_practise.view.favorite.vm
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bottomnavigation_practise.model.Dictionary.model.ListModel
