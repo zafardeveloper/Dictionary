@@ -11,17 +11,18 @@ import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.bottomnavigation_practise.R
 import com.example.bottomnavigation_practise.model.Dictionary.model.ListModel
 import com.example.bottomnavigation_practise.view.adapter.ListAdapter
 
 class HomeFragment : Fragment(R.layout.fragment_first), ListAdapter.Listener {
 
-
     private val recyclerView by lazy {
         requireView().findViewById<RecyclerView>(R.id.recyclerViewList)
     }
     private val adapter = ListAdapter(this)
+
 
     private val data = mutableListOf(
         ListModel("Калима", "слово", "Word", "[wɜːrd]"),

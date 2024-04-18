@@ -41,14 +41,14 @@ class SettingFragment : Fragment() {
         cardViewSwitcher.setOnClickListener {
             themeSwitcher.isChecked = !themeSwitcher.isChecked
             lifecycleScope.launch {
-                delay(300)
+                delay(200)
                 toggleTheme()
             }
         }
 
-        themeSwitcher.setOnClickListener {
+        themeSwitcher.setOnCheckedChangeListener { _, _ ->
             lifecycleScope.launch {
-                delay(300)
+                delay(200)
                 toggleTheme()
             }
         }
@@ -61,6 +61,7 @@ class SettingFragment : Fragment() {
             val alertDialog = AlertDialog.Builder(context)
                 .setView(dialogView)
                 .create()
+            alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
             buttonUnderstand.setOnClickListener {
                 alertDialog.dismiss()
