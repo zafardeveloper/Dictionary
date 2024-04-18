@@ -9,10 +9,10 @@
         android:id="@+id/item_favorites"
         android:icon="@drawable/ic_favourite"
         android:title="" />
-    <!--<item
-        android:id="@+id/item_favorites"
-        android:icon="@drawable/favorite_icon"
-        android:title="викторина" />-->
+    <item
+        android:id="@+id/item_victorina"
+        android:icon="@drawable/ic_favourite"
+        android:title="викторина" />
 
     <item
         android:id="@+id/item_settings"

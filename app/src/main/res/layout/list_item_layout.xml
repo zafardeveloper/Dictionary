@@ -54,13 +54,7 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="8dp"
             android:src="@drawable/favourite_not_icon"/>
-        <ImageView
-            android:id="@+id/btnFavorit1e"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="8dp"
-            android:src="@drawable/sound"/>
+
 
     </LinearLayout>
 
