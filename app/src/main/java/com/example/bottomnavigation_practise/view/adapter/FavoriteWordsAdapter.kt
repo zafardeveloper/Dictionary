@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
-import com.example.bottomnavigation_practise.model.Dictionary.model.Word
+import com.example.bottomnavigation_practise.model.Dictionary.model.ListModel
 
-class FavoriteWordsAdapter(private val favoriteWords: List<Word>) : RecyclerView.Adapter<FavoriteWordsAdapter.ViewHolder>() {
+class FavoriteWordsAdapter(private val favoriteWords: List<ListModel>) : RecyclerView.Adapter<FavoriteWordsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewWord: TextView = itemView.findViewById(R.id.textViewWord)

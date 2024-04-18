@@ -42,12 +42,8 @@ android {
 
 
 dependencies {
-<<<<<<< HEAD
-
-=======
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.google.android.material:material:1.11.0")
->>>>>>> 02a112b0797c9d30c6d075eb84513ef8ecda6166
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -61,6 +57,9 @@ dependencies {
     implementation("com.alif:core:0.0.0.1")
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.games.activity)
     //implementation(libs.androidx.navigation.fragment.ktx)
     //implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
