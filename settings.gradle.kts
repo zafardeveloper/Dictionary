@@ -25,8 +25,8 @@ dependencyResolutionManagement {
             url = uri("https://maven.pkg.github.com/ilhom9045/Alif-Academy/")
 
             credentials {
-                username = "moonira-0305"
-                password ="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"
+                username = "baha5555"
+                password ="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"
             }
         }
     }

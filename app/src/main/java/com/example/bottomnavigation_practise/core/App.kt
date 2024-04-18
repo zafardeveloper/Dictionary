@@ -1,4 +1,4 @@
-package com.alif.newsapplication.core
+package com.example.bottomnavigation_practise.core
 
 import android.app.Application
 //import com.alif.newsapplication.model.dataSource.db.history.DataBaseDataSource
