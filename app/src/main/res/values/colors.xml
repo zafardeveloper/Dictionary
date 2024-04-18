@@ -6,5 +6,5 @@
     <color name="rus_text">#D3D3D3</color>
     <color name="blue">#0072ff</color>
     <color name="night_mode_switch">#191919</color>
-
+    <color name="hint_color">#ACACAC</color>
 </resources>
