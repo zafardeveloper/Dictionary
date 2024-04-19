@@ -11,6 +11,7 @@ interface DictionaryRepository {
 
     suspend fun asyncLoadWordById(queryId: Int): DictionaryEntity
 
+    suspend fun asyncLoadAllWords(): List<DictionaryEntity>
 
 
 
@@ -29,6 +30,10 @@ interface DictionaryRepository {
 
         override suspend fun asyncLoadWordById(queryId: Int): DictionaryEntity {
             return dataBase.wordById(queryId)
+        }
+
+        override suspend fun asyncLoadAllWords(): List<DictionaryEntity> {
+            return dataBase.readWords()
         }
     }
 }
