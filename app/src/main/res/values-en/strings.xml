@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">bottomNavigation_Practise</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">search</string>
+    <string name="dark_theme">dark theme</string>
+    <string name="about">about programm</string>
+    <string name="Understand">It\'s clear</string>
+    <string name="version">:version 1.0</string>
+    <string name="more_about">By order of the Minister of Education and Science of the Republic of Tajikistan, learning and memorizing a short conversation in Tajik, Russian and English is mandatory for teachers and students of general education institutions (grades 5-11), teachers and students of secondary specialized and higher vocational educational institutions, workers in the field of education and science.\nThis application is an assistant in mastering this manual.</string>
+    <string name="dictionary">dictionary</string>
+    <string name="conversation">Сonversation</string>
+    <string name="find_in_english">Find translation in English </string>
+</resources>
