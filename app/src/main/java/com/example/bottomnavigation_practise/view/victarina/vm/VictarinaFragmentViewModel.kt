@@ -2,6 +2,8 @@ package com.example.bottomnavigation_practise.view.victarina.vm
 
 import com.alif.newsapplication.core.vm.BaseNewsViewModel
 import com.example.bottomnavigation_practise.model.Dictionary.model.DictionaryRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 sealed class DictionaryResult {
 
@@ -27,14 +29,10 @@ class DictionaryFragmentViewModel : BaseNewsViewModel<DictionaryResult>() {
         }
     }
 
-    fun checkAnswer(id: Int, answer: String) {
-        launchIO {
+    suspend fun checkAnswer(id: Int, answer: String): Boolean {
+        return withContext(Dispatchers.IO) {
             val word = repository.asyncLoadWordById(id)
-            mutableResultLiveData.postValue(
-                DictionaryResult.VictorinaCheckModel(
-                    word.wordEng == answer
-                )
-            )
+            word.wordEng == answer
         }
     }
 

@@ -7,4 +7,8 @@
     <color name="blue">#0072ff</color>
     <color name="night_mode_switch">#191919</color>
     <color name="hint_color">#ACACAC</color>
+    <color name="green">#5FEC46</color>
+    <color name="red">#D81C0E</color>
+    <color name="transparent">#00000000</color>
+    <color name="primary">#0072FF</color>
 </resources>
