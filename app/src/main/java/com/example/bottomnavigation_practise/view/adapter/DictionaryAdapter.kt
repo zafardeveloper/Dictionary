@@ -1,5 +1,6 @@
 package com.example.bottomnavigation_practise.view.adapter
 
+import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
 import com.example.bottomnavigation_practise.model.Dictionary.model.ListModel
 import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.entity.DictionaryEntity
+import java.util.Locale
 
 class DictionaryAdapter(
     private var words: List<DictionaryEntity>, private val listener: Listener
@@ -34,8 +36,20 @@ class DictionaryAdapter(
 //        private val transcription = itemView.findViewById<TextView>(R.id.transcription)
         private val btnFavourite = itemView.findViewById<ImageView>(R.id.btnFavorite)
         private var isImagePressed = false
+        private val imageViewPlay = view.findViewById<ImageView>(R.id.imageViewPlay)
+        private var textToSpeech: TextToSpeech? = null
 
         init {
+            imageViewPlay.setOnClickListener {
+                val context = itemView.context
+                val text = itemView.findViewById<TextView>(R.id.textTajWord).text.toString() // Здесь вы можете выбрать любой текст для воспроизведения
+                textToSpeech = TextToSpeech(context, TextToSpeech.OnInitListener { status ->
+                    if (status != TextToSpeech.ERROR) {
+                        textToSpeech?.language = Locale.getDefault()
+                        textToSpeech?.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+                    }
+                })
+            }
             btnFavourite.setOnClickListener {
                 isImagePressed = !isImagePressed
                 if (isImagePressed) {

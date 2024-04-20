@@ -2,6 +2,7 @@ package com.example.bottomnavigation_practise.view
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
@@ -20,8 +21,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Locale
 
-class HomeFragment : Fragment(R.layout.fragment_first), DictionaryAdapter.Listener {
+class HomeFragment : Fragment(R.layout.fragment_first), DictionaryAdapter.Listener, TextToSpeech.OnInitListener {
+    private var textToSpeech: TextToSpeech? = null
+
 
     private val recyclerView by lazy {
         requireView().findViewById<RecyclerView>(R.id.recyclerViewList)
@@ -31,6 +35,8 @@ class HomeFragment : Fragment(R.layout.fragment_first), DictionaryAdapter.Listen
     private val dictionaryRepository: DictionaryRepository = DictionaryRepository.Base()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        textToSpeech = TextToSpeech(requireContext(), this)
+
         dictionaryAdapter = DictionaryAdapter(emptyList(), this)
         recyclerView.adapter = dictionaryAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -44,6 +50,11 @@ class HomeFragment : Fragment(R.layout.fragment_first), DictionaryAdapter.Listen
             }
         }
 
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        textToSpeech?.stop()
+        textToSpeech?.shutdown()
     }
 
     private fun loadWords() {
@@ -86,7 +97,7 @@ class HomeFragment : Fragment(R.layout.fragment_first), DictionaryAdapter.Listen
         val tajWordTextView = dialogView.findViewById<TextView>(R.id.tajWord)
         val rusWordTextView = dialogView.findViewById<TextView>(R.id.rusWord)
         val engWordTextView = dialogView.findViewById<TextView>(R.id.engWord)
-        val transcriptionTextView = dialogView.findViewById<TextView>(R.id.transcription)
+       // val transcriptionTextView = dialogView.findViewById<TextView>(R.id.transcription)
 
         tajWordTextView.text = item.wordTj
         rusWordTextView.text = item.wordRu
@@ -103,6 +114,16 @@ class HomeFragment : Fragment(R.layout.fragment_first), DictionaryAdapter.Listen
 
         alertDialog.show()
     }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = textToSpeech?.setLanguage(Locale.US)
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                // Обработка ошибок инициализации TTS
+            }
+        } else {
+            // Обработка ошибок инициализации TTS
+        }    }
 
 
 }
