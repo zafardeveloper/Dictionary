@@ -10,4 +10,5 @@ abstract class DictionaryDataBase : RoomDatabase() {
 
     abstract fun dictionaryDao(): DictionaryDao
 
+
 }

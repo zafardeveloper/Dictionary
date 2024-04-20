@@ -1,9 +1,7 @@
 package com.example.bottomnavigation_practise.view.favorite.vm
 
-import com.alif.newsapplication.core.vm.BaseNewsViewModel
-
 /*
-b
+
 sealed class NewsResult {
     data class NewArticle(val articles: List<NewsArticlesModel>) : NewsResult()
 
