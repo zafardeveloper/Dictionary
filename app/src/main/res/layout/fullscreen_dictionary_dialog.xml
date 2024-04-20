@@ -72,20 +72,20 @@
                 android:textSize="20sp" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="транскрипсия:"
-                android:textColor="@color/hint_color"
-                android:textSize="18sp" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:text="транскрипсия:"-->
+<!--                android:textColor="@color/hint_color"-->
+<!--                android:textSize="18sp" />-->
 
-            <TextView
-                android:id="@+id/transcription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="[wɜːrd]"
-                android:textSize="20sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/transcription"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="[wɜːrd]"-->
+<!--                android:textSize="20sp" />-->
 
         </LinearLayout>
 
