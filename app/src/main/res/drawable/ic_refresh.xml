@@ -5,13 +5,13 @@
     android:viewportWidth="20"
     android:viewportHeight="18">
     <path
-        android:strokeColor="#FF306CFE"
+        android:strokeColor="@color/blue"
         android:strokeWidth="2"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
         android:pathData="M12 15H7c-1.27 0-2.5-0.41-3.53-1.16-1.03-0.75-1.79-1.81-2.17-3.02C0.9 9.6 0.92 8.3 1.33 7.1 1.73 5.9 2.5 4.85 3.54 4.1M8 3h5c1.27 0 2.5 0.41 3.53 1.16 1.03 0.75 1.79 1.81 2.17 3.02 0.39 1.21 0.38 2.52-0.03 3.72-0.4 1.2-1.17 2.25-2.21 2.99"/>
     <path
-        android:strokeColor="#FF344054"
+        android:strokeColor="@color/blue"
         android:strokeWidth="2"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
