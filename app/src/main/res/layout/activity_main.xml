@@ -24,7 +24,7 @@
             android:layout_height="65dp"
             app:itemActiveIndicatorStyle="@android:color/transparent"
             app:itemIconSize="27dp"
-            app:itemIconTint="@color/blue"
+            app:itemIconTint="@color/primary"
             app:menu="@menu/bottom_menu"
             app:itemPaddingTop="19dp"/>
 
