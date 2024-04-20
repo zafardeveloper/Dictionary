@@ -7,7 +7,7 @@ import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.d
 @Dao
 interface DictionaryDao {
 
-    @Query("SELECT * from data ORDER BY RANDOM() LIMIT 3")
+    @Query("SELECT * from data ORDER BY RANDOM() LIMIT 4")
     fun randomData(): List<DictionaryEntity>
 
     @Query("Select * from data where id = :id")
