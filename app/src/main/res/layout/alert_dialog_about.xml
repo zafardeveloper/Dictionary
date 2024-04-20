@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/dictionary"
+            android:text="@string/conversation"
             android:textSize="26sp" />
 
         <TextView
@@ -33,7 +33,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="24dp"
-            android:text="@string/version"
+            android:text="@string/more_about"
+            android:textAlignment="center"
             android:textColor="#7C7C7C"
             android:textSize="18sp" />
 
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:orientation="horizontal">
+
 
 
             <TextView

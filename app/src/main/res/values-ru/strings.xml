@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">bottomNavigation_Practise</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">поиск</string>
+    <string name="dark_theme">Тёмная тема</string>
+    <string name="about">О программе</string>
+    <string name="Understand">Понятно</string>
+    <string name="version">версия: 1.0</string>
+    <string name="more_about"> Приказом Министра образования и науки Республики Таджикистан обучение и запоминание короткой беседы на таджикском, русском и английском языках является обязательным для учителей и учащихся общеобразовательных учреждений (5-11 классов), преподавателей и студентов средних специальных и высших профессиональных учебных заведений, работников сферы образования и науки.\n Данное приложение является помощником в освоении данного пособия</string>
+    <string name="dictionary">Словарь</string>
+    <string name="conversation">Разговорник</string>
+    <string name="find_in_english">Найдите перевод на английском </string>
+    <string name="select_language">Выберите язык </string>
+    <string name="choose_language">Русский </string>
+</resources>
