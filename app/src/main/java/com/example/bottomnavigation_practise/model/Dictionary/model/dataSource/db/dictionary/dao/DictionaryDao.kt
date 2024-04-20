@@ -13,4 +13,6 @@ interface DictionaryDao {
     @Query("Select * from data where id = :id")
     fun wordById(id:Int): DictionaryEntity
 
+    @Query("Select * from data")
+    fun readWords(): List<DictionaryEntity>
 }

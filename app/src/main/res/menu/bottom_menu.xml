@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/item_victorina"
-        android:icon="@drawable/ic_victorina"
+        android:icon="@drawable/ic_quiz"
         android:title="" />
 
     <item

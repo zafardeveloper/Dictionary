@@ -8,16 +8,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigation_practise.R
 import com.example.bottomnavigation_practise.model.Dictionary.model.ListModel
+import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.entity.DictionaryEntity
 
-class ListAdapter(private val listener: Listener) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class DictionaryAdapter(
+    private var words: List<DictionaryEntity>, private val listener: Listener
+) : RecyclerView.Adapter<DictionaryAdapter.DictionaryViewHolder>() {
 
-    private var items = ArrayList<ListModel>()
+//    private var items = ArrayList<ListModel>()
     private var onFavoriteCheckedChangeListener: ((List<ListModel>) -> Unit)? = null
 
 
-    fun updateItems(items: List<ListModel>) {
-        this.items.clear()
-        this.items.addAll(items)
+    fun updateItems(words: List<DictionaryEntity>) {
+        this.words = words.toList()
         notifyDataSetChanged()
     }
 
@@ -25,11 +27,11 @@ class ListAdapter(private val listener: Listener) : RecyclerView.Adapter<ListAda
         onFavoriteCheckedChangeListener = listener
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class DictionaryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val tajTextView = itemView.findViewById<TextView>(R.id.textTajWord)
         private val rusTextView = itemView.findViewById<TextView>(R.id.textRusWord)
         private val engTextView = itemView.findViewById<TextView>(R.id.textEngWord)
-        private val transcription = itemView.findViewById<TextView>(R.id.transcription)
+//        private val transcription = itemView.findViewById<TextView>(R.id.transcription)
         private val btnFavourite = itemView.findViewById<ImageView>(R.id.btnFavorite)
         private var isImagePressed = false
 
@@ -45,11 +47,11 @@ class ListAdapter(private val listener: Listener) : RecyclerView.Adapter<ListAda
         }
 
 
-        fun bind(item: ListModel, listener: Listener) {
-            tajTextView.text = item.tajWord
-            rusTextView.text = item.rusWord
-            engTextView.text = item.engWord
-            transcription.text = item.transcription
+        fun bind(item: DictionaryEntity, listener: Listener) {
+            tajTextView.text = item.wordTj
+            rusTextView.text = item.wordRu
+            engTextView.text = item.wordEng
+//            transcription.text = item.transcription
             itemView.setOnClickListener {
                 listener.onClick(item)
                 true
@@ -57,20 +59,21 @@ class ListAdapter(private val listener: Listener) : RecyclerView.Adapter<ListAda
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DictionaryViewHolder {
+        return DictionaryViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.list_item_layout, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position], listener)
+    override fun onBindViewHolder(holder: DictionaryViewHolder, position: Int) {
+        val word = words[position]
+        holder.bind(word, listener)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = words.size
 
     interface Listener {
-        fun onClick(item: ListModel)
+        fun onClick(item: DictionaryEntity)
     }
 
 }

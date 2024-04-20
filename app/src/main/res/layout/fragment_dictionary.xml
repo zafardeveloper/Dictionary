@@ -64,6 +64,7 @@
             android:backgroundTintMode="@color/primary"
             android:background="@color/primary"
 
+
              />
     </RelativeLayout>
 
