@@ -6,6 +6,12 @@
     <string name="dark_theme">Мавзӯи торик</string>
     <string name="about">Дар бораи барнома</string>
     <string name="Understand">Фаҳмидам</string>
-    <string name="version">версия: 1.0</string>
-    <string name="dictionary">Луғат</string>
+    <string name="about_programm">
+        Бо фармоиши вазири маориф ва илми Ҷумҳурии Тоҷикистон омӯзиш ва
+        азёд кардани муњовараи мухтасари забонҳои тоҷикӣ, русӣ, англисӣ
+        барои омӯзгорону хонандагони муассисаҳои таҳсилоти миёнаи умумӣ (синфҳои 5–11),
+        устодону донишҷӯёни муассисаҳои таҳсилоти миёнаи махсус, олии касбӣ ва
+        кормандони соҳаи маориф ва илм ҳатмӣ дониста шудааст.
+    </string>
+    <string name="dictionary">Муховара</string>
 </resources>
