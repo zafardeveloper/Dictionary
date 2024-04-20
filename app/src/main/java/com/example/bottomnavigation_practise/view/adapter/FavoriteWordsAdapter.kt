@@ -11,11 +11,11 @@ import com.example.bottomnavigation_practise.model.Dictionary.model.ListModel
 class FavoriteWordsAdapter(private val favoriteWords: List<ListModel>) : RecyclerView.Adapter<FavoriteWordsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewWord: TextView = itemView.findViewById(R.id.textViewWord)
+        val textViewWord: TextView = itemView.findViewById(R.id.textTajWord)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_favorite_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_layout, parent, false)
         return ViewHolder(view)
     }
 
