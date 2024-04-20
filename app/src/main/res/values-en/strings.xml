@@ -11,4 +11,6 @@
     <string name="dictionary">dictionary</string>
     <string name="conversation">Сonversation</string>
     <string name="find_in_english">Find translation in English </string>
+    <string name="select_language">Select language </string>
+    <string name="choose_language">English </string>
 </resources>

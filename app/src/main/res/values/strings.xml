@@ -11,4 +11,6 @@
     <string name="dictionary">Луғат</string>
     <string name="conversation">Муховара</string>
     <string name="find_in_english">Тарҷумаашро ба забони англисӣ ёбед </string>
+    <string name="select_language">Забонро интихоб кунед </string>
+    <string name="choose_language">Тоҷикӣ </string>
 </resources>

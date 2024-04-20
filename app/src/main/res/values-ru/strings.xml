@@ -11,4 +11,6 @@
     <string name="dictionary">Словарь</string>
     <string name="conversation">Разговорник</string>
     <string name="find_in_english">Найдите перевод на английском </string>
+    <string name="select_language">Выберите язык </string>
+    <string name="choose_language">Русский </string>
 </resources>
