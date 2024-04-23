@@ -42,6 +42,7 @@ class VictarinaFragment : BaseNewsVMFragment<DictionaryResult, DictionaryFragmen
             transaction.commit()
         }
 
+
     }
 
     override fun onCreateView(
