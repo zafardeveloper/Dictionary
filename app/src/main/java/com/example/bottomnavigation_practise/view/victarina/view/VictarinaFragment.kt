@@ -39,9 +39,9 @@ class VictarinaFragment : BaseNewsVMFragment<DictionaryResult, DictionaryFragmen
             // Заменяем текущий фрагмент на новый
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container_view, VictarinaFragment())
-            transaction.addToBackStack(null) // Добавляем транзакцию в стек возврата
             transaction.commit()
         }
+
 
     }
 
