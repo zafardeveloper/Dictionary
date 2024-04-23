@@ -117,7 +117,7 @@ class HomeFragment : Fragment(R.layout.fragment_first), DictionaryAdapter.Listen
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = textToSpeech?.setLanguage(Locale.US)
+            val result = textToSpeech?.setLanguage(Locale.ENGLISH)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 // Обработка ошибок инициализации TTS
             }
