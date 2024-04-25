@@ -13,6 +13,9 @@ interface DictionaryRepository {
 
     suspend fun asyncLoadAllWords(): List<DictionaryEntity>
 
+    suspend fun asyncLoadFavoriteWords(): List<DictionaryEntity>
+
+    suspend fun asyncUpdateFavoriteStatus(entity: DictionaryEntity)
 
 
     class Base() : DictionaryRepository {
@@ -34,6 +37,14 @@ interface DictionaryRepository {
 
         override suspend fun asyncLoadAllWords(): List<DictionaryEntity> {
             return dataBase.readWords()
+        }
+
+        override suspend fun asyncLoadFavoriteWords(): List<DictionaryEntity> {
+            return dataBase.readFavoriteWords()
+        }
+
+        override suspend fun asyncUpdateFavoriteStatus(entity: DictionaryEntity) {
+            dataBase.updateFavoriteStatus(entity)
         }
     }
 }

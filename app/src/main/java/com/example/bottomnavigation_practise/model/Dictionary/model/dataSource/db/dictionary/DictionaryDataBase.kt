@@ -7,8 +7,5 @@ import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.d
 
 @Database(entities = [DictionaryEntity::class], version = 1)
 abstract class DictionaryDataBase : RoomDatabase() {
-
     abstract fun dictionaryDao(): DictionaryDao
-
-
 }

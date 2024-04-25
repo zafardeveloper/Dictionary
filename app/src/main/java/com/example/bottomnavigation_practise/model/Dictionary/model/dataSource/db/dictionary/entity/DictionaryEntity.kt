@@ -12,8 +12,12 @@ data class DictionaryEntity(
     val wordRu: String,
     @ColumnInfo(name = "word_eng")
     val wordEng: String,
+    @ColumnInfo(name = "transcrip")
+    val transcription:String?,
     @ColumnInfo(name = "sound")
-    val sound:String?
+    val sound:String?,
+    @ColumnInfo(name = "isFavorite")
+    var isFavorite: Int = 0
 
 ){
     @PrimaryKey(autoGenerate = true)

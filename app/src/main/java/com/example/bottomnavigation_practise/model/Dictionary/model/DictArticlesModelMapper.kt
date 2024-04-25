@@ -9,7 +9,9 @@ class DictArticlesModelMapper : Mapper<DictArticlesModel, DictionaryEntity> {
             wordTj = data.word_tj,
             wordRu = data.word_ru,
             wordEng = data.word_eng,
+            transcription = data.transcription,
             sound = data.sound,
+            isFavorite = data.isFavorite
         )
 
     }
