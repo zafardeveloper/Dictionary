@@ -4,11 +4,16 @@ package com.example.bottomnavigation_practise.view
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
@@ -18,8 +23,17 @@ import androidx.lifecycle.lifecycleScope
 import com.example.bottomnavigation_practise.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.util.Locale
+
 
 class SettingFragment : Fragment() {
+    fun restartApplication() {
+        val intent = requireActivity().baseContext.packageManager.getLaunchIntentForPackage(requireActivity().baseContext.packageName)
+        intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        requireActivity().finish()
+        startActivity(intent)
+    }
 
     private lateinit var themeSwitcher: Switch
     private lateinit var sharedPreferences: SharedPreferences
@@ -32,10 +46,12 @@ class SettingFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_third, container, false)
         val cardViewSwitcher = view.findViewById<CardView>(R.id.cardView_switcher)
         val cardViewAbout = view.findViewById<CardView>(R.id.cardView_about)
-        val cardViewSelectLanguage=view.findViewById<CardView>(R.id.cardView_select_language)
-        val textSelectTj=view.findViewById<TextView>(R.id.txt_tj)
-        var textSelectRu=view.findViewById<TextView>(R.id.txt_ru)
-        var textSelectEng=view.findViewById<TextView>(R.id.txt_eng)
+        val cardViewSelectLanguage = view.findViewById<CardView>(R.id.cardView_select_language)
+        val languageRadioGroup = view.findViewById<RadioGroup>(R.id.languageRadioGroup)
+        val radioTj = view.findViewById<RadioButton>(R.id.radioTj)
+        val radioRu = view.findViewById<RadioButton>(R.id.radioRu)
+        val radioEng = view.findViewById<RadioButton>(R.id.radioEng)
+
         themeSwitcher = view.findViewById(R.id.themeSwitcher)
         sharedPreferences =
             requireActivity().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
@@ -75,15 +91,44 @@ class SettingFragment : Fragment() {
             alertDialog.show()
         }
         cardViewSelectLanguage.setOnClickListener {
-            textSelectTj.setVisibility(View.VISIBLE);
-            textSelectRu.setVisibility(View.VISIBLE);
-            textSelectEng.setVisibility(View.VISIBLE);
+            languageRadioGroup.visibility = View.VISIBLE
         }
-        textSelectTj.setOnClickListener {}
-        textSelectRu.setOnClickListener {}
-        textSelectRu.setOnClickListener{}
+        languageRadioGroup.setOnCheckedChangeListener { group, checkedId ->
+            // Снимаем галочку со всех радиокнопок
+            radioTj.isChecked = false
+            radioRu.isChecked = false
+            radioEng.isChecked = false
+
+            when (checkedId) {
+                R.id.radioTj -> {
+                    setLocale("tg", requireContext())
+                    radioTj.isChecked = true // Помечаем выбранный язык галочкой
+                }
+                R.id.radioRu -> {
+                    setLocale("ru", requireContext())
+                    radioRu.isChecked = true // Помечаем выбранный язык галочкой
+                }
+                R.id.radioEng -> {
+                    setLocale("en", requireContext())
+                    radioEng.isChecked = true // Помечаем выбранный язык галочкой
+                }
+            }
+        }
 
         return view
+    }
+    fun setLocale(languageCode: String, context: Context) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        context.resources.updateConfiguration(config, context.resources.displayMetrics)
+
+        // Сохранение выбранного языка в настройках приложения
+        val prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+        editor.putString("language", languageCode)
+        editor.apply()
     }
 
     private fun toggleTheme() {
@@ -105,4 +150,5 @@ class SettingFragment : Fragment() {
         sharedPreferences.edit().putInt("theme_mode", themeMode).apply()
     }
 }
+
 
