@@ -17,8 +17,12 @@ data class DictArticlesModel(
     val word_ru: String = "",
     @SerializedName("word_eng")
     val word_eng: String,
+    @SerializedName("transcription")
+    val transcription: String = "",
     @SerializedName("sound")
     val sound: String = "",
+    @SerializedName("sound")
+    val isFavorite: Int
 
 ) {
     data class Source(

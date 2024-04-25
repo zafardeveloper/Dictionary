@@ -18,7 +18,7 @@
 
 
         <EditText
-            android:id="@+id/searchEditText"
+            android:id="@+id/searchDictionaryEdText"
             android:layout_width="353dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="16dp"
