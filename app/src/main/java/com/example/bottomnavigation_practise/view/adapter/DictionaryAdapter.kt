@@ -39,22 +39,9 @@ class DictionaryAdapter(
         private val engTextView = itemView.findViewById<TextView>(R.id.textEngWord)
         private val transcription = itemView.findViewById<TextView>(R.id.transcription)
         internal val btnFavourite = itemView.findViewById<ImageView>(R.id.btnFavorite)
-        private val imageViewPlay = view.findViewById<ImageView>(R.id.imageViewPlay)
-        private var textToSpeech: TextToSpeech? = null
 
-        init {
-            imageViewPlay.setOnClickListener {
-                val context = itemView.context
-                val text = itemView.findViewById<TextView>(R.id.textTajWord).text.toString() // Здесь вы можете выбрать любой текст для воспроизведения
-                textToSpeech = TextToSpeech(context) { status ->
-                    if (status != TextToSpeech.ERROR) {
-                        textToSpeech?.language = Locale.getDefault()
-                        textToSpeech?.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
-                    }
-                }
-            }
 
-        }
+        
 
 
         fun bind(item: DictionaryEntity, listener: Listener, sharedViewModel: SharedViewModel, repository: DictionaryRepository) {

@@ -10,6 +10,7 @@ import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
@@ -31,8 +32,8 @@ class HomeFragment :
     Fragment(R.layout.fragment_first),
     DictionaryAdapter.Listener,
     TextToSpeech.OnInitListener {
-
     private var textToSpeech: TextToSpeech? = null
+
 
     private val recyclerView by lazy {
         requireView().findViewById<RecyclerView>(R.id.recyclerViewList)
@@ -45,7 +46,8 @@ class HomeFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         textToSpeech = TextToSpeech(requireContext(), this)
 
-        dictionaryAdapter = DictionaryAdapter(emptyList(), this, dictionaryRepository, sharedViewModel)
+        dictionaryAdapter =
+            DictionaryAdapter(emptyList(), this, dictionaryRepository, sharedViewModel)
 
         recyclerView.adapter = dictionaryAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -64,11 +66,13 @@ class HomeFragment :
         }
 
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         textToSpeech?.stop()
         textToSpeech?.shutdown()
     }
+
 
     private fun loadWords() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -87,7 +91,7 @@ class HomeFragment :
 
                 CoroutineScope(Dispatchers.IO).launch {
                     val filteredWords = dictionaryRepository.asyncLoadAllWords().filter { word ->
-                                word.wordTj.lowercase().contains(searchQuery) ||
+                        word.wordTj.lowercase().contains(searchQuery) ||
                                 word.wordRu.lowercase().contains(searchQuery) ||
                                 word.wordEng.lowercase().contains(searchQuery)
                     }
@@ -103,6 +107,7 @@ class HomeFragment :
     }
 
     override fun onClick(item: DictionaryEntity) {
+
         val dialogView = LayoutInflater.from(context)
             .inflate(R.layout.fullscreen_dictionary_dialog, requireView() as ViewGroup, false)
 
@@ -137,11 +142,22 @@ class HomeFragment :
         }
 
         alertDialog.show()
+        val imageViewPlayRu = dialogView.findViewById<ImageView>(R.id.imageViewPlayRu)
+        val imageViewPlayEng = dialogView.findViewById<ImageView>(R.id.imageViewPlayEng)
+
+        imageViewPlayRu.setOnClickListener {
+            speakWord(item.wordRu)
+        }
+
+        imageViewPlayEng.setOnClickListener {
+            speakWord(item.wordEng)
+        }
     }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = textToSpeech?.setLanguage(Locale.ENGLISH)
+            // Устанавливаем язык, например, русский
+            val result = textToSpeech?.setLanguage(Locale("en"))
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 // Обработка ошибок инициализации TTS
             }
@@ -150,5 +166,8 @@ class HomeFragment :
         }
     }
 
+    private fun speakWord(word: String) {
+        textToSpeech?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
+    }
 
 }

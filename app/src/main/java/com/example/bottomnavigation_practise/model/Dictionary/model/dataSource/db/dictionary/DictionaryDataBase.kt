@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.alif.newsapplication.model.dataSource.db.dictionary.dao.DictionaryDao
 import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.entity.DictionaryEntity
 
-@Database(entities = [DictionaryEntity::class], version = 1)
+@Database(entities = [DictionaryEntity::class], version = 2)
 abstract class DictionaryDataBase : RoomDatabase() {
     abstract fun dictionaryDao(): DictionaryDao
 }

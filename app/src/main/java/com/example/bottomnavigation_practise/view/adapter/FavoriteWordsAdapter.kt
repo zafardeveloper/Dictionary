@@ -32,21 +32,9 @@ class FavoriteWordsAdapter(
         private val engTextView = itemView.findViewById<TextView>(R.id.textEngWord)
         private val transcription = itemView.findViewById<TextView>(R.id.transcription)
         internal val btnFavourite = itemView.findViewById<ImageView>(R.id.btnFavorite)
-        private val imageViewPlay = view.findViewById<ImageView>(R.id.imageViewPlay)
-        private var textToSpeech: TextToSpeech? = null
 
-        init {
-            imageViewPlay.setOnClickListener {
-                val context = itemView.context
-                val text = itemView.findViewById<TextView>(R.id.textTajWord).text.toString()
-                textToSpeech = TextToSpeech(context, TextToSpeech.OnInitListener { status ->
-                    if (status != TextToSpeech.ERROR) {
-                        textToSpeech?.language = Locale.getDefault()
-                        textToSpeech?.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
-                    }
-                })
-            }
-        }
+
+
 
 
         fun bind(item: DictionaryEntity, listener: DictionaryAdapter.Listener, sharedViewModel: SharedViewModel, repository: DictionaryRepository) {

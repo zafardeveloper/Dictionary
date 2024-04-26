@@ -2,12 +2,14 @@ package com.example.bottomnavigation_practise.view.favorite.view
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
@@ -23,10 +25,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Locale
 
 class FavoriteFragment :
     Fragment(R.layout.fragment_second),
-    DictionaryAdapter.Listener {
+    DictionaryAdapter.Listener, TextToSpeech.OnInitListener {
+    private var textToSpeech: TextToSpeech? = null
 
     private val recyclerView by lazy {
         requireView().findViewById<RecyclerView>(R.id.recyclerViewFavorite)
@@ -38,8 +42,11 @@ class FavoriteFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        textToSpeech = TextToSpeech(requireContext(), this)
 
-        favoriteWordsAdapter = FavoriteWordsAdapter(emptyList(), this, favoriteWordsRepository, sharedViewModel)
+
+        favoriteWordsAdapter =
+            FavoriteWordsAdapter(emptyList(), this, favoriteWordsRepository, sharedViewModel)
         recyclerView.adapter = favoriteWordsAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
 
@@ -50,6 +57,25 @@ class FavoriteFragment :
         loadWords()
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        textToSpeech?.stop()
+        textToSpeech?.shutdown()
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            // Устанавливаем язык, например, русский
+            val result = textToSpeech?.setLanguage(Locale("en"))
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                // Обработка ошибок инициализации TTS
+            }
+        } else {
+            // Обработка ошибок инициализации TTS
+        }
+    }
+
     private fun loadWords() {
         CoroutineScope(Dispatchers.IO).launch {
             val words = favoriteWordsRepository.asyncLoadFavoriteWords()
@@ -83,5 +109,21 @@ class FavoriteFragment :
         }
 
         alertDialog.show()
+
+        val imageViewPlayRu = dialogView.findViewById<ImageView>(R.id.imageViewPlayRu)
+        val imageViewPlayEng = dialogView.findViewById<ImageView>(R.id.imageViewPlayEng)
+
+        imageViewPlayRu.setOnClickListener {
+            speakWord(item.wordRu)
+        }
+
+        imageViewPlayEng.setOnClickListener {
+            speakWord(item.wordEng)
+        }
+
+    }
+
+    private fun speakWord(word: String) {
+        textToSpeech?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
     }
 }

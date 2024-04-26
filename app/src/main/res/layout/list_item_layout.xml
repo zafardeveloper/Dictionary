@@ -60,14 +60,7 @@
         </LinearLayout>
 
 
-        <ImageView
-            android:id="@+id/imageViewPlay"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="8dp"
-            android:src="@drawable/ic_sound"
-            app:tint="@color/blue" />
+
 
         <ImageView
             android:id="@+id/btnFavorite"
