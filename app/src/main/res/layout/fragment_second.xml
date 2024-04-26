@@ -7,33 +7,13 @@
     tools:context=".view.favorite.view.FavoriteFragment"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="10dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="0dp">
-
-
-
-        <EditText
-            android:id="@+id/searchFavoriteEdText"
-            android:layout_width="353dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="16dp"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="8dp"
-            android:hint="@string/search"
-            android:textSize="18sp"/>
-
-    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewFavorite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginTop="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 

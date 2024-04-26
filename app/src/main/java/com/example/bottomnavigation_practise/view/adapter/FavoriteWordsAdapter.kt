@@ -1,7 +1,9 @@
 package com.example.bottomnavigation_practise.view.adapter
 
+import android.graphics.Rect
 import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
+import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -14,6 +16,7 @@ import com.example.bottomnavigation_practise.view.favorite.vm.SharedViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Locale
 
 class FavoriteWordsAdapter(
@@ -52,19 +55,36 @@ class FavoriteWordsAdapter(
             engTextView.text = item.wordEng
             transcription.text = item.transcription
 
+            val parent = btnFavourite.parent as View
+
+            parent.post {
+                val rect = Rect()
+                btnFavourite.getHitRect(rect)
+                rect.top -= 10
+                rect.left -= 10
+                rect.bottom += 10
+                rect.right += 10
+                parent.touchDelegate = TouchDelegate(rect, btnFavourite)
+            }
+
             btnFavourite.setOnClickListener {
-                if (item.isFavorite == 1) {
-                    btnFavourite.setImageResource(R.drawable.favourite_not_icon)
-                    item.isFavorite = 0
-                } else {
-                    btnFavourite.setImageResource(R.drawable.favourite_icon)
-                    item.isFavorite = 1
-                }
-                sharedViewModel.selectedWord.value = item
                 CoroutineScope(Dispatchers.IO).launch {
+                    if (item.isFavorite == 1) {
+                        item.isFavorite = 0
+                    } else {
+                        item.isFavorite = 1
+                    }
                     repository.asyncUpdateFavoriteStatus(item)
+                    withContext(Dispatchers.Main) {
+                        if (item.isFavorite == 1) {
+                            btnFavourite.setImageResource(R.drawable.favourite_icon)
+                        } else {
+                            btnFavourite.setImageResource(R.drawable.favourite_not_icon)
+                        }
+                    }
                 }
             }
+
             itemView.setOnClickListener {
                 listener.onClick(item)
                 true

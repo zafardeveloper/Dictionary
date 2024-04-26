@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search">поиск</string>
-    <string name="dark_theme">Тёмная тема</string>
+    <string name="dark_theme">Светлая/Тёмная тема</string>
     <string name="about">О программе</string>
     <string name="Understand">Понятно</string>
     <string name="version">версия: 1.0</string>
