@@ -48,41 +48,13 @@ class FavoriteFragment :
         }
 
         loadWords()
-        view.findViewById<EditText>(R.id.searchFavoriteEdText)?.apply {
-            requestFocus()
-            background = null
-            doAfterTextChanged {
-                filterChats(it)
-            }
-        }
+
     }
     private fun loadWords() {
         CoroutineScope(Dispatchers.IO).launch {
             val words = favoriteWordsRepository.asyncLoadFavoriteWords()
             withContext(Dispatchers.Main) {
                 favoriteWordsAdapter.updateItem(words)
-            }
-        }
-    }
-
-    private fun filterChats(query: Editable?) {
-        query?.let { it ->
-            if (it.isNotEmpty()) {
-                val searchQuery = query.toString().lowercase()
-
-                CoroutineScope(Dispatchers.IO).launch {
-                    val filteredWords = favoriteWordsRepository.asyncLoadAllWords().filter { word ->
-                        word.wordTj.lowercase().contains(searchQuery) ||
-                                word.wordRu.lowercase().contains(searchQuery) ||
-                                word.wordEng.lowercase().contains(searchQuery)
-                    }
-                    withContext(Dispatchers.Main) {
-                        favoriteWordsAdapter.updateItem(filteredWords)
-                    }
-                }
-
-            } else {
-                loadWords()
             }
         }
     }

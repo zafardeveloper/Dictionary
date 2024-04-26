@@ -1,10 +1,12 @@
 package com.example.bottomnavigation_practise.view
 
 import android.app.AlertDialog
+import android.graphics.Rect
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.view.LayoutInflater
+import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -119,6 +121,17 @@ class HomeFragment :
         val alertDialog = AlertDialog.Builder(context).setView(dialogView).create()
         alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
+        val parent = buttonOk.parent as View
+
+        parent.post {
+            val rect = Rect()
+            buttonOk.getHitRect(rect)
+            rect.top -= 10
+            rect.left -= 10
+            rect.bottom += 10
+            rect.right += 10
+            parent.touchDelegate = TouchDelegate(rect, buttonOk)
+        }
         buttonOk.setOnClickListener {
             alertDialog.dismiss()
         }

@@ -1,104 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="30dp"
-    app:cardCornerRadius="25dp"
-    app:cardElevation="0dp">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="15dp">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="10dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="0dp">
-
-            <TextView
-                android:id="@+id/tajWord"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:text="Калима"
-                android:textSize="25sp" />
-
-
-        </androidx.cardview.widget.CardView>
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="15dp">
 
-            <TextView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/tajWord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="Калима"
+                    android:textSize="25sp" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="русӣ:"
+                    android:textColor="@color/hint_color"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/rusWord"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Слово"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imageViewPlayRu"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="8dp"
+                        android:src="@drawable/ic_sound"
+                        app:tint="@color/blue" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="англисӣ:"
+                    android:textColor="@color/hint_color"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/engWord"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Word"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imageViewPlayEng"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="8dp"
+                        android:src="@drawable/ic_sound"
+                        app:tint="@color/blue" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="транскрипсия:"
+                    android:textColor="@color/hint_color"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/transcription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="[wɜːrd]"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/okButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:layout_marginTop="30dp"
-                android:text="русӣ:"
-                android:textColor="@color/hint_color"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/rusWord"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Слово"
-                android:textSize="20sp" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="англисӣ:"
-                android:textColor="@color/hint_color"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/engWord"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Word"
-                android:textSize="20sp" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="транскрипсия:"
-                android:textColor="@color/hint_color"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/transcription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="[wɜːrd]"
-                android:textSize="20sp" />
+                android:layout_marginEnd="20dp"
+                android:text="Ок"
+                android:textColor="@color/blue"
+                android:textSize="20dp" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/okButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:text="Ок"
-            android:textColor="@color/blue"
-            android:textSize="20dp" />
-
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</ScrollView>
