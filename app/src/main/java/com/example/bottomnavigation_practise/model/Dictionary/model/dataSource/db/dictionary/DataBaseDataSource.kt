@@ -13,7 +13,6 @@ object DataBaseDataSource {
         dictionaryDataBase =
             Room.databaseBuilder(context, DictionaryDataBase::class.java, "dictionary")
                 .createFromAsset("dictionary.db")
-                .fallbackToDestructiveMigration()
                 .build()
     }
 }
