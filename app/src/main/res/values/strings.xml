@@ -6,11 +6,16 @@
     <string name="dark_theme">Реҷаи рӯзона/шабона</string>
     <string name="about">Дар бораи барнома</string>
     <string name="Understand">Фаҳмидам</string>
-    <string name="version">версия: 1.0</string>
     <string name="more_about">Бо фармоиши вазири маориф ва илми Ҷумҳурии Тоҷикистон омӯзиш ва азёд кардани муҳовараи мухтасари забонҳои тоҷикӣ, русӣ, англисӣ барои омӯзгорону хонандагони муассисаҳои таҳсилоти миёнаи умумӣ (синфҳои 5-11), устодону донишҷӯёни муассисаҳои таҳсилоти миёнаи махсус, олии касбӣ ва кормандони соҳаи маориф ва илм ҳатмӣ дониста шудааст.\n Барномаи мазкур барои омӯзиши муҳовараи мазкур ба шумо кӯмак мерасонад</string>
-    <string name="dictionary">Луғат</string>
     <string name="conversation">Муховара</string>
     <string name="find_in_english">Тарҷумаашро ба забони англисӣ ёбед </string>
     <string name="select_language">Интихоби забон</string>
     <string name="choose_language">Тоҷикӣ </string>
+    <string name="victorina_condition">Тарчумаашро ба забони англиси ёбед:</string>
+    <string name="rus_translation">русӣ:</string>
+    <string name="eng_translation">англисӣ:</string>
+    <string name="transcription">транскрипсия:</string>
+    <string name="tajik" translatable="false">Тоҷикӣ</string>
+    <string name="russian" translatable="false">Русский</string>
+    <string name="english" translatable="false">English</string>
 </resources>

@@ -7,6 +7,9 @@
     <style name="Theme.BottomNavigation_Practise" parent="Base.Theme.BottomNavigation_Practise" />
 
 
+    <style name="MyRadioButtonStyle" parent="Theme.Material3.DayNight">
+        <item name="colorAccent">@color/blue</item>
+    </style>
 
 
 </resources>

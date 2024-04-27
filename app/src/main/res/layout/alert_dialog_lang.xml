@@ -21,25 +21,26 @@
             android:layout_marginStart="10dp"
             android:orientation="vertical">
 
-            <RadioButton
+            <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/radioTj"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Тоҷикӣ"
-                android:textSize="18sp"/>
+                android:text="@string/tajik"
+                android:textSize="18sp"
+                android:buttonTint="@color/blue"/>
 
             <RadioButton
                 android:id="@+id/radioRu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Русский"
+                android:text="@string/russian"
                 android:textSize="18sp"/>
 
             <RadioButton
                 android:id="@+id/radioEng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="English"
+                android:text="@string/english"
                 android:textSize="18sp"/>
 
         </RadioGroup>

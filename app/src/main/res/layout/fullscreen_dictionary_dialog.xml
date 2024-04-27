@@ -47,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="русӣ:"
+                    android:text="@string/rus_translation"
                     android:textColor="@color/hint_color"
                     android:textSize="18sp" />
 
@@ -79,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:text="англисӣ:"
+                    android:text="@string/eng_translation"
                     android:textColor="@color/hint_color"
                     android:textSize="18sp" />
 
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:text="транскрипсия:"
+                    android:text="@string/transcription"
                     android:textColor="@color/hint_color"
                     android:textSize="18sp" />
 

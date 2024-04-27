@@ -22,7 +22,7 @@
                 android:gravity="center"
                 android:padding="16dp"
                 android:paddingBottom="10dp"
-                android:text="Тарчумаашро ба забони англиси ёбед:"
+                android:text="@string/victorina_condition"
                 android:textSize="32sp" />
 
             <TextView
