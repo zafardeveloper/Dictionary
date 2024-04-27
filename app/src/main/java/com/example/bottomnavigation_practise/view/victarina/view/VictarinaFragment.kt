@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import com.alif.core.common.clazz
 import com.alif.core.view.extention.findViewById
 import com.alif.core.view.extention.transaction
@@ -18,14 +17,13 @@ import com.example.bottomnavigation_practise.R
 import com.example.bottomnavigation_practise.core.view.BaseNewsVMFragment
 import com.example.bottomnavigation_practise.view.victarina.vm.DictionaryFragmentViewModel
 import com.example.bottomnavigation_practise.view.victarina.vm.DictionaryResult
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
 
 class VictarinaFragment : BaseNewsVMFragment<DictionaryResult, DictionaryFragmentViewModel>(
-    R.layout.fragment_dictionary,
+    R.layout.fragment_victorina,
     clazz()
 ) {
 

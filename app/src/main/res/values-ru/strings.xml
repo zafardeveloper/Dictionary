@@ -13,4 +13,8 @@
     <string name="find_in_english">Найдите перевод на английском </string>
     <string name="select_language">Выберите язык </string>
     <string name="choose_language">Русский </string>
+    <string name="victorina_condition">Найдите английский перевод:</string>
+    <string name="rus_translation">русский:</string>
+    <string name="eng_translation">английский:</string>
+    <string name="transcription">транскрипция:</string>
 </resources>

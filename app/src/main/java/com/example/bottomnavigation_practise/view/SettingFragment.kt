@@ -26,14 +26,6 @@ import java.util.Locale
 
 
 class SettingFragment : Fragment() {
-    fun restartApplication() {
-        val intent =
-            requireActivity().baseContext.packageManager.getLaunchIntentForPackage(requireActivity().baseContext.packageName)
-        intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        intent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        requireActivity().finish()
-        intent?.let { startActivity(it) }
-    }
 
     private lateinit var themeSwitcher: Switch
     private lateinit var sharedPreferences: SharedPreferences
@@ -48,13 +40,13 @@ class SettingFragment : Fragment() {
         val cardViewAbout = view.findViewById<CardView>(R.id.cardView_about)
         val cardViewSelectLanguage = view.findViewById<CardView>(R.id.cardView_select_language)
 
-
         themeSwitcher = view.findViewById(R.id.themeSwitcher)
         sharedPreferences =
             requireActivity().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
-
         AppCompatDelegate.setDefaultNightMode(getCurrentTheme())
         themeSwitcher.isChecked = getCurrentTheme() == AppCompatDelegate.MODE_NIGHT_YES
+
+
 
         cardViewSwitcher.setOnClickListener {
             themeSwitcher.isChecked = !themeSwitcher.isChecked
@@ -107,7 +99,7 @@ class SettingFragment : Fragment() {
                     R.id.radioTj -> "tg"
                     R.id.radioRu -> "ru"
                     R.id.radioEng -> "en"
-                    else -> "en"
+                    else -> "tg"
                 }
 
             }
@@ -139,6 +131,7 @@ class SettingFragment : Fragment() {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container_view, SettingFragment()).commit()
     }
+
 
 
     private fun toggleTheme() {

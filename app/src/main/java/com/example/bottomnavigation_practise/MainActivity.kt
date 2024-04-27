@@ -22,7 +22,6 @@ import java.util.Locale
 
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
-    private lateinit var languageManager: LanguageManager
     private val bottomNavigationView by lazy { findViewById<BottomNavigationView>(R.id.bottom_navigation_view) }
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -45,9 +44,6 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         if (savedInstanceState == null) {
             replaceFragment(SplashFragment())
         }
-        languageManager = LanguageManager(this)
-        val selectedLanguage = languageManager.getLanguage()
-        setLocale(selectedLanguage)
     }
 
     override fun onBackPressed() {
@@ -55,6 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             bottomNavigationView.menu[0].isChecked = true
             onNavigationItemSelected(bottomNavigationView.menu[0])
             return
+
         }
         super.onBackPressed()
     }
