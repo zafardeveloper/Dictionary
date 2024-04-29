@@ -80,6 +80,7 @@ class SettingFragment : Fragment() {
             alertDialog.show()
         }
 
+
         cardViewSelectLanguage.setOnClickListener {
             val dialogView = LayoutInflater.from(context)
                 .inflate(R.layout.alert_dialog_lang, requireView() as ViewGroup, false)
