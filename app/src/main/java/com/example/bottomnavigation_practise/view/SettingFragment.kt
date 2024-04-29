@@ -88,6 +88,7 @@ class SettingFragment : Fragment() {
 
             val alertDialog = AlertDialog.Builder(context)
                 .setView(dialogView)
+                .setCancelable(false)
                 .create()
             alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
@@ -115,7 +116,6 @@ class SettingFragment : Fragment() {
                 setLocale(selectedLanguage, requireContext())
                 alertDialog.dismiss()
             }
-
             alertDialog.show()
         }
 
