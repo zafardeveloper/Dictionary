@@ -32,7 +32,8 @@ class HomeFragment :
     Fragment(R.layout.fragment_first),
     DictionaryAdapter.Listener,
     TextToSpeech.OnInitListener {
-    private var textToSpeech: TextToSpeech? = null
+    private var textToSpeechEng: TextToSpeech? = null
+    private var textToSpeechRu: TextToSpeech? = null
 
 
     private val recyclerView by lazy {
@@ -44,7 +45,8 @@ class HomeFragment :
     private val dictionaryRepository: DictionaryRepository = DictionaryRepository.Base()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        textToSpeech = TextToSpeech(requireContext(), this)
+        textToSpeechEng = TextToSpeech(requireContext(), this)
+        textToSpeechRu = TextToSpeech(requireContext(), this)
 
         dictionaryAdapter =
             DictionaryAdapter(emptyList(), this, dictionaryRepository, sharedViewModel)
@@ -68,9 +70,15 @@ class HomeFragment :
     }
 
     override fun onDestroyView() {
+        if (textToSpeechEng?.isSpeaking == true){
+            textToSpeechEng?.stop()
+            textToSpeechEng?.shutdown()
+        }
+        if (textToSpeechRu?.isSpeaking == true){
+            textToSpeechRu?.stop()
+            textToSpeechRu?.shutdown()
+        }
         super.onDestroyView()
-        textToSpeech?.stop()
-        textToSpeech?.shutdown()
     }
 
 
@@ -146,28 +154,25 @@ class HomeFragment :
         val imageViewPlayEng = dialogView.findViewById<ImageView>(R.id.imageViewPlayEng)
 
         imageViewPlayRu.setOnClickListener {
-            speakWord(item.wordRu)
+            speakWordRu(item.wordRu)
         }
 
         imageViewPlayEng.setOnClickListener {
-            speakWord(item.wordEng)
+            speakWordEng(item.wordEng)
         }
     }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            // Устанавливаем язык, например, русский
-            val result = textToSpeech?.setLanguage(Locale("en"))
-            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                // Обработка ошибок инициализации TTS
-            }
-        } else {
-            // Обработка ошибок инициализации TTS
+            textToSpeechRu?.setLanguage(Locale("ru"))
+            textToSpeechEng?.setLanguage(Locale("en"))
         }
     }
 
-    private fun speakWord(word: String) {
-        textToSpeech?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
+    private fun speakWordRu(word: String) {
+        textToSpeechRu?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
     }
-
+    private fun speakWordEng(word: String) {
+        textToSpeechEng?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
+    }
 }

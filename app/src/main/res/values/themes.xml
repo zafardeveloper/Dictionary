@@ -6,9 +6,8 @@
 
     <style name="Theme.BottomNavigation_Practise" parent="Base.Theme.BottomNavigation_Practise" />
 
-
-    <style name="MyRadioButtonStyle" parent="Theme.Material3.DayNight">
-        <item name="colorAccent">@color/blue</item>
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#D3E3F8</item>
     </style>
 
 
