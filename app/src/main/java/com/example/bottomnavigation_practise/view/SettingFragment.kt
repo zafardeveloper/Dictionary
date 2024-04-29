@@ -80,6 +80,7 @@ class SettingFragment : Fragment() {
             alertDialog.show()
         }
 
+
         cardViewSelectLanguage.setOnClickListener {
             val dialogView = LayoutInflater.from(context)
                 .inflate(R.layout.alert_dialog_lang, requireView() as ViewGroup, false)
@@ -88,6 +89,7 @@ class SettingFragment : Fragment() {
 
             val alertDialog = AlertDialog.Builder(context)
                 .setView(dialogView)
+                .setCancelable(false)
                 .create()
             alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
@@ -115,7 +117,6 @@ class SettingFragment : Fragment() {
                 setLocale(selectedLanguage, requireContext())
                 alertDialog.dismiss()
             }
-
             alertDialog.show()
         }
 
