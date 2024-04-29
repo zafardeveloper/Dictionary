@@ -56,6 +56,7 @@ class VictarinaFragment : BaseNewsVMFragment<DictionaryResult, DictionaryFragmen
             when (result) {
                 is DictionaryResult.VictorinaWordsModel -> {
                     wordTextView.text = result.word
+                    answersLinearLayout.removeAllViews()
                     result.answers.forEach { answer ->
                         val answerButton = LayoutInflater.from(requireContext()).inflate(R.layout.item_button, answersLinearLayout, false) as Button
                         answerButton.text = answer
