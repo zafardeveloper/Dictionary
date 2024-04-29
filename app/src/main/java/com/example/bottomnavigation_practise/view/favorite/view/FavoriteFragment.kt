@@ -30,7 +30,8 @@ import java.util.Locale
 class FavoriteFragment :
     Fragment(R.layout.fragment_second),
     DictionaryAdapter.Listener, TextToSpeech.OnInitListener {
-    private var textToSpeech: TextToSpeech? = null
+    private var textToSpeechRu: TextToSpeech? = null
+    private var textToSpeechEng: TextToSpeech? = null
 
     private val recyclerView by lazy {
         requireView().findViewById<RecyclerView>(R.id.recyclerViewFavorite)
@@ -42,7 +43,8 @@ class FavoriteFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        textToSpeech = TextToSpeech(requireContext(), this)
+        textToSpeechRu = TextToSpeech(requireContext(), this)
+        textToSpeechEng = TextToSpeech(requireContext(), this)
 
 
         favoriteWordsAdapter =
@@ -60,19 +62,20 @@ class FavoriteFragment :
 
     override fun onDestroyView() {
         super.onDestroyView()
-        textToSpeech?.stop()
-        textToSpeech?.shutdown()
+        if (textToSpeechRu?.isSpeaking == true){
+            textToSpeechRu?.stop()
+            textToSpeechRu?.shutdown()
+        }
+        if (textToSpeechEng?.isSpeaking == true){
+            textToSpeechEng?.stop()
+            textToSpeechEng?.shutdown()
+        }
     }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            // Устанавливаем язык, например, русский
-            val result = textToSpeech?.setLanguage(Locale("en"))
-            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                // Обработка ошибок инициализации TTS
-            }
-        } else {
-            // Обработка ошибок инициализации TTS
+            textToSpeechRu?.setLanguage(Locale("ru"))
+            textToSpeechEng?.setLanguage(Locale("en"))
         }
     }
 
@@ -114,16 +117,19 @@ class FavoriteFragment :
         val imageViewPlayEng = dialogView.findViewById<ImageView>(R.id.imageViewPlayEng)
 
         imageViewPlayRu.setOnClickListener {
-            speakWord(item.wordRu)
+            speakWordRu(item.wordRu)
         }
 
         imageViewPlayEng.setOnClickListener {
-            speakWord(item.wordEng)
+            speakWordEng(item.wordEng)
         }
 
     }
 
-    private fun speakWord(word: String) {
-        textToSpeech?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
+    private fun speakWordRu(word: String) {
+        textToSpeechRu?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+    private fun speakWordEng(word: String) {
+        textToSpeechEng?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
     }
 }

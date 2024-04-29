@@ -4,14 +4,12 @@ package com.example.bottomnavigation_practise.view
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Switch
 import android.widget.TextView
@@ -29,6 +27,8 @@ class SettingFragment : Fragment() {
 
     private lateinit var themeSwitcher: Switch
     private lateinit var sharedPreferences: SharedPreferences
+
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -93,15 +93,22 @@ class SettingFragment : Fragment() {
 
             var selectedLanguage = "en"
 
+            val checkedButtonId = sharedPreferences.getInt("checkedButtonId", -1)
+            if (checkedButtonId != -1) {
+                languageRadioGroup.check(checkedButtonId)
+            }
+
             languageRadioGroup.setOnCheckedChangeListener { group, checkedId ->
+                val editor = sharedPreferences.edit()
+                editor.putInt("checkedButtonId", checkedId)
+                editor.apply()
 
                 selectedLanguage = when (checkedId) {
                     R.id.radioTj -> "tg"
                     R.id.radioRu -> "ru"
                     R.id.radioEng -> "en"
-                    else -> "tg"
+                    else -> selectedLanguage
                 }
-
             }
 
             buttonOk.setOnClickListener {

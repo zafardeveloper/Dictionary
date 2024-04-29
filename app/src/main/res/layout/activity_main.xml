@@ -28,7 +28,8 @@
             app:itemIconSize="27dp"
             app:itemIconTint="@color/primary"
             app:menu="@menu/bottom_menu"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"/>
 
     </androidx.cardview.widget.CardView>
 
