@@ -5,10 +5,12 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioGroup
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
@@ -18,11 +20,15 @@ import androidx.lifecycle.lifecycleScope
 import com.example.bottomnavigation_practise.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.util.Locale
+
 
 class SettingFragment : Fragment() {
 
     private lateinit var themeSwitcher: Switch
     private lateinit var sharedPreferences: SharedPreferences
+
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -32,16 +38,15 @@ class SettingFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_third, container, false)
         val cardViewSwitcher = view.findViewById<CardView>(R.id.cardView_switcher)
         val cardViewAbout = view.findViewById<CardView>(R.id.cardView_about)
-        val cardViewSelectLanguage=view.findViewById<CardView>(R.id.cardView_select_language)
-        val textSelectTj=view.findViewById<TextView>(R.id.txt_tj)
-        var textSelectRu=view.findViewById<TextView>(R.id.txt_ru)
-        var textSelectEng=view.findViewById<TextView>(R.id.txt_eng)
+        val cardViewSelectLanguage = view.findViewById<CardView>(R.id.cardView_select_language)
+
         themeSwitcher = view.findViewById(R.id.themeSwitcher)
         sharedPreferences =
             requireActivity().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
-
         AppCompatDelegate.setDefaultNightMode(getCurrentTheme())
         themeSwitcher.isChecked = getCurrentTheme() == AppCompatDelegate.MODE_NIGHT_YES
+
+
 
         cardViewSwitcher.setOnClickListener {
             themeSwitcher.isChecked = !themeSwitcher.isChecked
@@ -74,17 +79,68 @@ class SettingFragment : Fragment() {
 
             alertDialog.show()
         }
+
+
         cardViewSelectLanguage.setOnClickListener {
-            textSelectTj.setVisibility(View.VISIBLE);
-            textSelectRu.setVisibility(View.VISIBLE);
-            textSelectEng.setVisibility(View.VISIBLE);
+            val dialogView = LayoutInflater.from(context)
+                .inflate(R.layout.alert_dialog_lang, requireView() as ViewGroup, false)
+            val buttonOk = dialogView.findViewById<TextView>(R.id.buttonOkLang)
+            val languageRadioGroup = dialogView.findViewById<RadioGroup>(R.id.languageRadioGroup)
+
+            val alertDialog = AlertDialog.Builder(context)
+                .setView(dialogView)
+                .setCancelable(false)
+                .create()
+            alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+            var selectedLanguage = "en"
+
+            val checkedButtonId = sharedPreferences.getInt("checkedButtonId", -1)
+            if (checkedButtonId != -1) {
+                languageRadioGroup.check(checkedButtonId)
+            }
+
+            languageRadioGroup.setOnCheckedChangeListener { group, checkedId ->
+                val editor = sharedPreferences.edit()
+                editor.putInt("checkedButtonId", checkedId)
+                editor.apply()
+
+                selectedLanguage = when (checkedId) {
+                    R.id.radioTj -> "tg"
+                    R.id.radioRu -> "ru"
+                    R.id.radioEng -> "en"
+                    else -> selectedLanguage
+                }
+            }
+
+            buttonOk.setOnClickListener {
+                setLocale(selectedLanguage, requireContext())
+                alertDialog.dismiss()
+            }
+            alertDialog.show()
         }
-        textSelectTj.setOnClickListener {}
-        textSelectRu.setOnClickListener {}
-        textSelectRu.setOnClickListener{}
+
 
         return view
     }
+
+    private fun setLocale(languageCode: String, context: Context) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        context.resources.updateConfiguration(config, context.resources.displayMetrics)
+
+        val prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+        editor.putString("language", languageCode)
+        editor.apply()
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container_view, SettingFragment()).commit()
+    }
+
+
 
     private fun toggleTheme() {
         val currentTheme = getCurrentTheme()
@@ -105,4 +161,5 @@ class SettingFragment : Fragment() {
         sharedPreferences.edit().putInt("theme_mode", themeMode).apply()
     }
 }
+
 

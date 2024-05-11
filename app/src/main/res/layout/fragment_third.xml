@@ -15,8 +15,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        app:cardElevation="0dp">
+        android:layout_marginBottom="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,8 +56,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        app:cardElevation="0dp">
+        android:layout_marginBottom="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,16 +75,16 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_select_language"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="60dp"
         app:cardCornerRadius="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        app:cardElevation="0dp">
+        android:layout_marginBottom="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,37 +100,8 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:layout_gravity="center_vertical"/>
-            <TextView
-                android:id="@+id/txt_tj"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Тоҷикӣ"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:layout_marginTop="20dp"
-                android:visibility="invisible"
-                android:layout_gravity="center_vertical" />
-            <TextView
-                android:id="@+id/txt_ru"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Русский"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:layout_marginTop="20dp"
-                android:visibility="invisible"
-                android:layout_gravity="center_vertical"
-                />
-            <TextView
-                android:id="@+id/txt_eng"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="English"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center_vertical"
-                android:visibility="invisible"/>
+
+
 
         </LinearLayout>
 

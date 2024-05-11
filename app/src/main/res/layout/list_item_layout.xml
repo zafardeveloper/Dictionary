@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="1dp"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="16dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,14 +60,7 @@
         </LinearLayout>
 
 
-        <ImageView
-            android:id="@+id/imageViewPlay"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="8dp"
-            android:src="@drawable/ic_sound"
-            app:tint="@color/blue" />
+
 
         <ImageView
             android:id="@+id/btnFavorite"

@@ -10,21 +10,20 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import com.alif.core.common.clazz
 import com.alif.core.view.extention.findViewById
+import com.alif.core.view.extention.transaction
 import com.example.bottomnavigation_practise.R
 import com.example.bottomnavigation_practise.core.view.BaseNewsVMFragment
 import com.example.bottomnavigation_practise.view.victarina.vm.DictionaryFragmentViewModel
 import com.example.bottomnavigation_practise.view.victarina.vm.DictionaryResult
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
 
 class VictarinaFragment : BaseNewsVMFragment<DictionaryResult, DictionaryFragmentViewModel>(
-    R.layout.fragment_dictionary,
+    R.layout.fragment_victorina,
     clazz()
 ) {
 
@@ -36,12 +35,8 @@ class VictarinaFragment : BaseNewsVMFragment<DictionaryResult, DictionaryFragmen
         answersLinearLayout = findViewById(R.id.answersLinearLayout)
         val refreshButton = findViewById<ImageView>(R.id.refreshButton)
         refreshButton.setOnClickListener {
-            // Заменяем текущий фрагмент на новый
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container_view, VictarinaFragment())
-            transaction.commit()
+        transaction(R.id.fragment_container_view, VictarinaFragment())
         }
-
 
     }
 
@@ -61,6 +56,7 @@ class VictarinaFragment : BaseNewsVMFragment<DictionaryResult, DictionaryFragmen
             when (result) {
                 is DictionaryResult.VictorinaWordsModel -> {
                     wordTextView.text = result.word
+                    answersLinearLayout.removeAllViews()
                     result.answers.forEach { answer ->
                         val answerButton = LayoutInflater.from(requireContext()).inflate(R.layout.item_button, answersLinearLayout, false) as Button
                         answerButton.text = answer
