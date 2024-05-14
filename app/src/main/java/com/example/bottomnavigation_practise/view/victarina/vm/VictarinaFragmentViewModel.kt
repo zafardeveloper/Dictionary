@@ -1,7 +1,7 @@
 package com.example.bottomnavigation_practise.view.victarina.vm
 
 import com.alif.newsapplication.core.vm.BaseNewsViewModel
-import com.example.bottomnavigation_practise.model.Dictionary.model.DictionaryRepository
+import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.DictionaryRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

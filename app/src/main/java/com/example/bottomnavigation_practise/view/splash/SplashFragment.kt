@@ -1,12 +1,13 @@
-package com.example.bottomnavigation_practise.view
+package com.example.bottomnavigation_practise.view.splash
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bottomnavigation_practise.MainActivity
+import com.example.bottomnavigation_practise.view.MainActivity
 import com.example.bottomnavigation_practise.R
+import com.example.bottomnavigation_practise.view.home.view.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

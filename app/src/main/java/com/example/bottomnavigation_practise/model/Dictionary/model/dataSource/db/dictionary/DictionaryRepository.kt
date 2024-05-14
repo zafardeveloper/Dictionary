@@ -1,10 +1,10 @@
-package com.example.bottomnavigation_practise.model.Dictionary.model
+package com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary
 
 
 import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.entity.DictionaryEntity
 //import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.history.DataBaseDataSource
 import com.example.bottomnavigation_practise.view.victarina.vm.DictionaryResult
-import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.DataBaseDataSource
+
 interface DictionaryRepository {
 
     suspend fun asyncLoadVictorinaWords(): DictionaryResult.VictorinaWordsModel

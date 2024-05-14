@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise
+package com.example.bottomnavigation_practise.view
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,9 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import com.example.bottomnavigation_practise.view.HomeFragment
-import com.example.bottomnavigation_practise.view.SettingFragment
-import com.example.bottomnavigation_practise.view.SplashFragment
+import com.example.bottomnavigation_practise.R
+import com.example.bottomnavigation_practise.view.home.view.HomeFragment
+import com.example.bottomnavigation_practise.view.setting.SettingFragment
+import com.example.bottomnavigation_practise.view.splash.SplashFragment
 import com.example.bottomnavigation_practise.view.favorite.view.FavoriteFragment
 import com.example.bottomnavigation_practise.view.victarina.view.VictarinaFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -93,6 +94,5 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     private fun getCurrentTheme(): Int {
         return sharedPreferences.getInt("theme_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
     }
-
 
 }

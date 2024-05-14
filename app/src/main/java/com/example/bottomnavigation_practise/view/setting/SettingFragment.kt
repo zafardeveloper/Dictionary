@@ -1,4 +1,4 @@
-package com.example.bottomnavigation_practise.view
+package com.example.bottomnavigation_practise.view.setting
 
 
 import android.annotation.SuppressLint
@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.example.bottomnavigation_practise.common.ClickAreaButton
 import com.example.bottomnavigation_practise.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -93,7 +94,7 @@ class SettingFragment : Fragment() {
                 .create()
             alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-            var selectedLanguage = "en"
+            var selectedLanguage = "ru"
 
             val checkedButtonId = sharedPreferences.getInt("checkedButtonId", -1)
             if (checkedButtonId != -1) {
@@ -112,7 +113,7 @@ class SettingFragment : Fragment() {
                     else -> selectedLanguage
                 }
             }
-
+            ClickAreaButton.clickAreaButton(buttonOk)
             buttonOk.setOnClickListener {
                 setLocale(selectedLanguage, requireContext())
                 alertDialog.dismiss()

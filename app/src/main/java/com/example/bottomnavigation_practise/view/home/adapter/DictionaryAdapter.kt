@@ -1,23 +1,20 @@
-package com.example.bottomnavigation_practise.view.adapter
+package com.example.bottomnavigation_practise.view.home.adapter
 
-import android.graphics.Rect
-import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
-import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bottomnavigation_practise.common.ClickAreaButton
 import com.example.bottomnavigation_practise.R
-import com.example.bottomnavigation_practise.model.Dictionary.model.DictionaryRepository
+import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.DictionaryRepository
 import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.entity.DictionaryEntity
 import com.example.bottomnavigation_practise.view.favorite.vm.SharedViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.Locale
 
 class DictionaryAdapter(
     private var words: List<DictionaryEntity>,
@@ -25,6 +22,7 @@ class DictionaryAdapter(
     private val repository: DictionaryRepository,
     private val sharedViewModel: SharedViewModel
 ) : RecyclerView.Adapter<DictionaryAdapter.DictionaryViewHolder>() {
+
 
 
     fun updateItem(newWords: List<DictionaryEntity>) {
@@ -40,27 +38,13 @@ class DictionaryAdapter(
         private val transcription = itemView.findViewById<TextView>(R.id.transcription)
         internal val btnFavourite = itemView.findViewById<ImageView>(R.id.btnFavorite)
 
-
-        
-
-
-        fun bind(item: DictionaryEntity, listener: Listener, sharedViewModel: SharedViewModel, repository: DictionaryRepository) {
+        fun bind(item: DictionaryEntity, listener: Listener, repository: DictionaryRepository) {
             tajTextView.text = item.wordTj
             rusTextView.text = item.wordRu
             engTextView.text = item.wordEng
             transcription.text = item.transcription
 
-            val parent = btnFavourite.parent as View
-
-            parent.post {
-                val rect = Rect()
-                btnFavourite.getHitRect(rect)
-                rect.top -= 10
-                rect.left -= 10
-                rect.bottom += 10
-                rect.right += 10
-                parent.touchDelegate = TouchDelegate(rect, btnFavourite)
-            }
+            ClickAreaButton.clickAreaButton(btnFavourite)
 
             btnFavourite.setOnClickListener {
                 CoroutineScope(Dispatchers.IO).launch {
@@ -97,19 +81,21 @@ class DictionaryAdapter(
 
     override fun onBindViewHolder(holder: DictionaryViewHolder, position: Int) {
         val word = words[position]
-        holder.bind(word, listener, sharedViewModel, repository)
+        holder.bind(word, listener, repository)
 
         if (word.isFavorite == 1) {
             holder.btnFavourite.setImageResource(R.drawable.favourite_icon)
         } else {
             holder.btnFavourite.setImageResource(R.drawable.favourite_not_icon)
         }
+
     }
 
     override fun getItemCount(): Int = words.size
 
     interface Listener {
         fun onClick(item: DictionaryEntity)
+
     }
 
 }

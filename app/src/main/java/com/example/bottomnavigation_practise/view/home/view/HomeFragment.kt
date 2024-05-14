@@ -1,12 +1,10 @@
-package com.example.bottomnavigation_practise.view
+package com.example.bottomnavigation_practise.view.home.view
 
 import android.app.AlertDialog
-import android.graphics.Rect
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.view.LayoutInflater
-import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -17,11 +15,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bottomnavigation_practise.common.ClickAreaButton
 import com.example.bottomnavigation_practise.R
-import com.example.bottomnavigation_practise.model.Dictionary.model.DictionaryRepository
+import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.DictionaryRepository
 import com.example.bottomnavigation_practise.model.Dictionary.model.dataSource.db.dictionary.entity.DictionaryEntity
-import com.example.bottomnavigation_practise.view.adapter.DictionaryAdapter
 import com.example.bottomnavigation_practise.view.favorite.vm.SharedViewModel
+import com.example.bottomnavigation_practise.view.home.adapter.DictionaryAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -67,14 +66,20 @@ class HomeFragment :
             }
         }
 
+        val cleanBtn = view.findViewById<ImageView>(R.id.cleanSearchText)
+        ClickAreaButton.clickAreaButton(cleanBtn)
+        cleanBtn.setOnClickListener {
+            view.findViewById<EditText>(R.id.searchDictionaryEdText).setText("")
+        }
+
     }
 
     override fun onDestroyView() {
-        if (textToSpeechEng?.isSpeaking == true){
+        if (textToSpeechEng?.isSpeaking == true) {
             textToSpeechEng?.stop()
             textToSpeechEng?.shutdown()
         }
-        if (textToSpeechRu?.isSpeaking == true){
+        if (textToSpeechRu?.isSpeaking == true) {
             textToSpeechRu?.stop()
             textToSpeechRu?.shutdown()
         }
@@ -134,17 +139,8 @@ class HomeFragment :
         val alertDialog = AlertDialog.Builder(context).setView(dialogView).create()
         alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-        val parent = buttonOk.parent as View
+        ClickAreaButton.clickAreaButton(buttonOk)
 
-        parent.post {
-            val rect = Rect()
-            buttonOk.getHitRect(rect)
-            rect.top -= 10
-            rect.left -= 10
-            rect.bottom += 10
-            rect.right += 10
-            parent.touchDelegate = TouchDelegate(rect, buttonOk)
-        }
         buttonOk.setOnClickListener {
             alertDialog.dismiss()
         }
@@ -172,6 +168,7 @@ class HomeFragment :
     private fun speakWordRu(word: String) {
         textToSpeechRu?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
     }
+
     private fun speakWordEng(word: String) {
         textToSpeechEng?.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
     }

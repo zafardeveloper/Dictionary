@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.HomeFragment"
+    tools:context=".view.home.view.HomeFragment"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="10dp"
         app:cardCornerRadius="10dp">
 
@@ -18,13 +18,21 @@
 
         <EditText
             android:id="@+id/searchDictionaryEdText"
-            android:layout_width="353dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="16dp"
+            android:layout_marginHorizontal="10dp"
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="8dp"
             android:hint="@string/search"
             android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/cleanSearchText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_clean"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="10dp"/>
 
     </androidx.cardview.widget.CardView>
 
